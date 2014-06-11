@@ -99,10 +99,39 @@ void EditGarage(tGarage *garage, int currentNrOfGarages) {
 
 }
 
-void ChooseGarage(tGarage *garage, int currentNrOfGarages) {
-    unsigned short int inputFloor, inputHangar;
+int ChooseGarage(tGarage *garage, int currentNrOfGarages) {
+    unsigned short int inputFloor, inputHangar, inputSearchField;
     int input;
     int i;
+    do {
+    printf ("\nInsira o campo pelo qual quer pesquisar a oficina");
+    printf ("\n0 - Numero");
+    printf ("\n1 - Area");
+    printf ("\n2 - Especialidade");
+    printf ("\n3 - Piso");
+    printf ("\n4 - Hangar");
+    scanf ("hu", &inputSearchField);
+    }while (inputSearchField < 0 || inputSearchField > 4);
+    
+    switch (inputSearchField){
+        case 0 : 
+            break;
+            case 1 : 
+            break;
+            case 2 : 
+            break;
+            case 3 : 
+            break;
+            case 4 : 
+            break;
+        default :
+            printf ("Opcao invalida");
+            break;
+    }
+    
+    
+    
+    
     
     /*
     do{
@@ -126,6 +155,27 @@ void ChooseGarage(tGarage *garage, int currentNrOfGarages) {
     }
      * aa
     */
+}
+
+int SearchForNumber (tGarage *garage, int *currentNrOfGarages) {
+    unsigned short int inputNr;
+    printf("\nInsira o numero da oficina:");
+    scanf("%hu", &inputNr);
+    if (inputNr <= currentNrOfGarages) {
+        return inputNr-1;
+    }
+}
+int SearchForArea (tGarage *garage) {
+    float inputArea;
+}
+int SearchForSpeciality (tGarage *garage) {
+    unsigned short int inputSpeciality;
+}
+int SearchForFloor (tGarage *garage) {
+    unsigned short int inputFloor;
+}
+int SearchForHanger (tGarage *garage) {
+    unsigned short int inputHangar;
 }
 
 bool isValidHangar(unsigned short int inputHangar) {
