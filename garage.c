@@ -9,12 +9,13 @@ typedef enum hangar {
     WEST = 3
 } enumHangar;
 
-typedef struct {
+typedef struct garage {
     unsigned short int number;
     float area;
     unsigned short int floor;
     enumHangar hangarLocation;
     bool enable;
+    enumSpeciality speciality;
 } tGarage;
 
 bool isValidHangar( unsigned short int inputHangar);
@@ -44,7 +45,7 @@ void AddGarage(tGarage *garage, int currentNrOfGarages) {
         scanf("%hu", &inputHangar);
         getchar();
     } while (!isValidHangar(inputHangar));
-
+    
     garage[currentNrOfGarages].hangarLocation = inputHangar;
     garage[currentNrOfGarages].enable = true;
 }
@@ -97,6 +98,7 @@ void ChooseGarage(tGarage *garage, int currentNrOfGarages) {
     unsigned short int inputFloor, inputHangar;
     int input;
     int i;
+    
     /*
     do{
     printf("\nInsira o andar a que pertece a oficina (0-2): ");
