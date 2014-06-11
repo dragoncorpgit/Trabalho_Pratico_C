@@ -95,7 +95,7 @@ void EditGarage(tGarage *garage, int currentNrOfGarages) {
 
 void ChooseGarage(tGarage *garage, int currentNrOfGarages) {
     unsigned short int inputFloor, inputHangar;
-    int input
+    int input;
     int i;
     /*
     do{
