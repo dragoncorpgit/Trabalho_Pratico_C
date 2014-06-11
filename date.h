@@ -15,7 +15,7 @@ typedef struct
 }Date;
 
  bool isCorrectDate(Date);
- bool yearIsLeap(short int);
- bool inBetween(short int, short int, short int);
+ bool yearIsLeap(unsigned short int);
+ bool inBetween(unsigned short int, unsigned short int, unsigned short int);
 #endif	/* DATE_H */
 

@@ -39,7 +39,7 @@ bool isCorrectDate(Date date)
  }
 }
 
-bool yearIsLeap(short int year)
+bool yearIsLeap(unsigned short int year)
 {
  if(year%4==0)
  {
@@ -51,7 +51,7 @@ bool yearIsLeap(short int year)
  }
 }
 
-bool inBetween(short int number, short int minValue, short int maxValue)
+bool inBetween(unsigned short int number, unsigned short int minValue, unsigned short int maxValue)
 {
  if(number<=maxValue&&number>=minValue)
  {
@@ -63,3 +63,17 @@ bool inBetween(short int number, short int minValue, short int maxValue)
  }
 }
 
+bool fillDate(Date *date, unsigned short int day, unsigned short int month, unsigned short int year)
+{
+ date.day=day;
+ date.month=month;
+ date.year=year;
+ if(isCorrectDate(date))
+ {
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
