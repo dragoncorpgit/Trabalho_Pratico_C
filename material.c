@@ -14,7 +14,7 @@ bool setDenomination(char newDenomination[], char* denomination)
  }
 }
 
-void *addMaterial(tMaterial d,char denomination[], char nSerie[12] )
+void *addMaterial(tMaterial *newMaterial, char denomination[], char nSerie[12], Date acquisitionDate, float price)
 {
  
 }
