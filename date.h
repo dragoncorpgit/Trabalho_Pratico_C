@@ -7,12 +7,13 @@
 
 #ifndef DATE_H
 #define	DATE_H
-typedef struct
-{
- unsigned short int day;
- unsigned short int month;
- unsigned short int year;
-}Date;
+#include <stdbool.h>
+ typedef struct
+ {
+  unsigned short int day;
+  unsigned short int month;
+  unsigned short int year;
+ }Date;
 
  bool isCorrectDate(Date);
  bool yearIsLeap(unsigned short int);

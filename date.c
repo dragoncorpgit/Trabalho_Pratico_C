@@ -1,4 +1,3 @@
-#include <stdbool.h>
 #include "date.h"
 
 bool isCorrectDate(Date date)
@@ -65,10 +64,10 @@ bool inBetween(unsigned short int number, unsigned short int minValue, unsigned 
 
 bool fillDate(Date *date, unsigned short int day, unsigned short int month, unsigned short int year)
 {
- date.day=day;
- date.month=month;
- date.year=year;
- if(isCorrectDate(date))
+ (*date).day=day;
+ (*date).month=month;
+ (*date).year=year;
+ if(isCorrectDate(*date))
  {
   return true;
  }

@@ -7,13 +7,14 @@
 
 #ifndef MATERIAL_H
 #define	MATERIAL_H
-typedef struct
-{
- char *denomination;
- float price;
- char nSerie[12];
- Date acquisitionDate;
-}tMaterial;
+#include "date.h"
+ typedef struct
+ {
+  char *denomination;
+  float price;
+  char nSerie[12];
+  Date acquisitionDate;
+ }tMaterial;
 
 
 
