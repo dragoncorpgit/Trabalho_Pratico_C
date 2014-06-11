@@ -13,9 +13,10 @@ typedef enum speciality {
 
 int main(void) 
 {
-    
+   
  return (EXIT_SUCCESS);
 }
+
 
 bool IsSpecialityValid (unsigned short int inputSpeciality) {
     if (inputSpeciality < 0 || inputSpeciality > 5){

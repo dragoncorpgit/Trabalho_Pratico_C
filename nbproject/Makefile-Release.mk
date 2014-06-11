@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/date.o \
-	${OBJECTDIR}/functions.o \
 	${OBJECTDIR}/garage.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/material.o \
@@ -71,11 +70,6 @@ ${OBJECTDIR}/date.o: date.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/date.o date.c
-
-${OBJECTDIR}/functions.o: functions.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/functions.o functions.c
 
 ${OBJECTDIR}/garage.o: garage.c 
 	${MKDIR} -p ${OBJECTDIR}
