@@ -1,18 +1,11 @@
-/* 
- * File:   main.c
- * Author: gaming2
- *
- * Created on June 11, 2014, 10:29 AM
- */
-
 #include <stdio.h>
 #include <stdlib.h>
+#include "date.h"
 
-/*
- * 
- */
-int main(int argc, char** argv) {
-
-    return (EXIT_SUCCESS);
+int main(void) 
+{
+ 
+ return (EXIT_SUCCESS);
 }
+
 

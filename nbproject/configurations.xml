@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>date.h</itemPath>
+      <itemPath>functions.h</itemPath>
+      <itemPath>material.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +15,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>date.c</itemPath>
+      <itemPath>functions.c</itemPath>
+      <itemPath>garage.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>material.c</itemPath>
+      <itemPath>mechanic.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -36,7 +44,23 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="date.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="functions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="garage.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="material.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="material.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mechanic.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +83,23 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="date.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="functions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="garage.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="material.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="material.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mechanic.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
