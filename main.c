@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "date.h"
-a
+aaaa
 typedef enum speciality {
     CARS = 0,
     SIMPLE_MOTORCYLES = 1,
