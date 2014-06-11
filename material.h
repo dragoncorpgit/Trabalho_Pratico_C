@@ -7,7 +7,10 @@
 
 #ifndef MATERIAL_H
 #define	MATERIAL_H
-#include "date.h"
+ #include "date.h"
+ #include <stdbool.h>
+ #include <string.h>
+
  typedef struct
  {
   char *denomination;

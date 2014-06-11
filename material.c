@@ -1,7 +1,4 @@
-#include <stdbool.h>
-#include <string.h>
 #include "material.h"
-#include "date.h"
 
 bool setDenomination(char newDenomination[], char* denomination)
 {
