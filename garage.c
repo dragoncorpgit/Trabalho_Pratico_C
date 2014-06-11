@@ -86,8 +86,13 @@ void ListGarage(tGarage *garage, int currentNrOfGarages) {
     }
 }
 
-void DeleteGarage(tGarage *garage, int currentNrOfGarages) {
-
+void DeleteGarage(tGarage *garage, int *currentNrOfGarages) {
+    unsigned short int garageToDelete, i;
+    
+    for (i=garageToDelete; i < currentNrOfGarages-1; i++){
+        garage[i]=garage[i+1];
+    }
+    *currentNrOfGarages--;
 }
 
 void EditGarage(tGarage *garage, int currentNrOfGarages) {
@@ -123,7 +128,7 @@ void ChooseGarage(tGarage *garage, int currentNrOfGarages) {
     */
 }
 
-bool isValidHangar( unsigned short int inputHangar) {
+bool isValidHangar(unsigned short int inputHangar) {
     
     if (inputHangar < 0 || inputHangar > 3) {
         printf("Hangar inválido, insira corretamente");
