@@ -9,7 +9,7 @@ typedef enum hangar {
     WEST = 3
 } enumHangar;
 
-typedef struct garage {
+typedef struct{
     unsigned short int number;
     float area;
     unsigned short int floor;
