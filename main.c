@@ -3,7 +3,7 @@
 #include "date.h"
 #include "LinkedList.h"
 
-typedef enum speciality {
+typedef enum {
     CARS = 0,
     SIMPLE_MOTORCYLES = 1,
     HIGH_CYLINDER_MOTORCYLES  = 2,
