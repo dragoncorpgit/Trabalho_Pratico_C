@@ -15,7 +15,7 @@ typedef struct{
     unsigned short int floor;
     enumHangar hangarLocation;
     bool enable;
-    enumSpeciality speciality;
+    //enumSpeciality speciality;
 } tGarage;
 
 bool isValidHangar( unsigned short int inputHangar);
@@ -89,7 +89,7 @@ void ListGarage(tGarage *garage, int currentNrOfGarages) {
 void DeleteGarage(tGarage *garage, int *currentNrOfGarages) {
     unsigned short int garageToDelete, i;
     
-    for (i=garageToDelete; i < currentNrOfGarages-1; i++){
+    for (i=garageToDelete; i < *currentNrOfGarages-1; i++){
         garage[i]=garage[i+1];
     }
     *currentNrOfGarages--;
@@ -110,7 +110,7 @@ int ChooseGarage(tGarage *garage, int currentNrOfGarages) {
     printf ("\n2 - Especialidade");
     printf ("\n3 - Piso");
     printf ("\n4 - Hangar");
-    scanf ("hu", &inputSearchField);
+    scanf ("%hu", &inputSearchField);
     }while (inputSearchField < 0 || inputSearchField > 4);
     
     switch (inputSearchField){
@@ -161,7 +161,7 @@ int SearchForNumber (tGarage *garage, int *currentNrOfGarages) {
     unsigned short int inputNr;
     printf("\nInsira o numero da oficina:");
     scanf("%hu", &inputNr);
-    if (inputNr <= currentNrOfGarages) {
+    if (inputNr <= *currentNrOfGarages) {
         return inputNr-1;
     }
 }
