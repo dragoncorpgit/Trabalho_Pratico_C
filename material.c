@@ -60,6 +60,21 @@ void *material_fillMaterial(tMaterial *newMaterial, char denomination[], char nS
  return newMaterial;
 }
 
+void *material_add(tMaterial *material, tMaterial elementToAdd)
+{
+ 
+}
+
+void *material_replace(tMaterial *material, tMaterial elementToEdit)
+{
+ 
+}
+
+void *material_remove(tMaterial *material, char nSerie[12])
+{
+ 
+}
+
 void material_findMaterial()
 {
  

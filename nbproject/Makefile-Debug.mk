@@ -35,9 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/LinkedList.o \
 	${OBJECTDIR}/date.o \
 	${OBJECTDIR}/garage.o \
+	${OBJECTDIR}/linkedList.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/material.o \
 	${OBJECTDIR}/mechanic.o
@@ -67,11 +67,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalho_pratico_c: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalho_pratico_c ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/LinkedList.o: LinkedList.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LinkedList.o LinkedList.c
-
 ${OBJECTDIR}/date.o: date.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -81,6 +76,11 @@ ${OBJECTDIR}/garage.o: garage.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/garage.o garage.c
+
+${OBJECTDIR}/linkedList.o: linkedList.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linkedList.o linkedList.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
