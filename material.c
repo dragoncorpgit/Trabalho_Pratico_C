@@ -25,7 +25,7 @@ bool material_setDenomination(char newDenomination[], char* denomination)
 
 void material_setNSerie(char newNSerie[12], char nSerie[12])
 {
- strcpy(nSerie,newNSerie);
+ strcpy((nSerie),newNSerie);
 }
 
 void material_setPrice(float newPrice, float* price)
@@ -46,7 +46,7 @@ bool material_setAcquisitionDate(Date newDate, Date* date)
  }
 }
 
-void *material_fillMaterial(tMaterial *newMaterial, char denomination[], char nSerie[12], Date acquisitionDate, float price)
+void material_fillMaterial(tMaterial *newMaterial, char denomination[], char nSerie[12], Date acquisitionDate, float price)
 {
  (*newMaterial).denomination=NULL;
  if(material_setDenomination(denomination, (*newMaterial).denomination))
@@ -57,7 +57,6 @@ void *material_fillMaterial(tMaterial *newMaterial, char denomination[], char nS
    material_setNSerie(nSerie, &(*newMaterial).nSerie);
   }
  }
- return newMaterial;
 }
 
 void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial elementToAdd)
