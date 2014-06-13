@@ -76,22 +76,33 @@ void *material_replace(tMaterial *material, tMaterial elementToEdit)
  
 }
 
-void *material_remove(tMaterial *material, char nSerie[12])
+void *material_remove(tMaterial *material, unsigned int position, unsigned int *numMaterial)
 {
  int i;
- bool position=false;
- for(i=0;i<(*material).numMaterial;i++)
+ int length;
+ tMaterial toRemove;
+ for(i=position;i<(*numMaterial);i++)
  {
-  if(position)
+  if(i==position)
   {
-   position=true;
-   i--;
+   length=sizeof((*material)[position]);
+   toRemove=(*material)[position];
   }
   else
   {
-   if((i+1)<(*material)[i])
+   if((i+1)<(*numMaterial))
+   {
+    (*material)[i]=(*material)[i+1];
+   }
+   else
+   {
+    (*material)[i]=toRemove;
+    free((*material)[i].denomination);
+   }
   }
  }
+ (*numMaterial)++;
+ return realloc(material, (sizeof(*material)-length));
 }
 
 void *material_findMaterial(tMaterial material)
