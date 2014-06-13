@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "date.h"
-#include "LinkedList.h"
 
 typedef enum {
     CARS = 0,
@@ -14,9 +13,7 @@ typedef enum {
 
 int main(void) 
 {
- Date* data;
- Date nD=fillDate(2,3,2012);
- data=linkedList_addElement(data,&nD);
+ 
  return (EXIT_SUCCESS);
 }
 
