@@ -17,6 +17,7 @@
   float price;
   char nSerie[12];
   Date acquisitionDate;
+  unsigned int numMaterial;
  }tMaterial;
 
  bool material_setDenomination(char[], char*);
@@ -24,6 +25,5 @@
  void material_setPrice(float, float*);
  bool material_setAcquisitionDate(Date, Date*);
  void *material_fillMaterial(tMaterial*, char[], char[], Date, float);
- 
 
 #endif	/* MATERIAL_H */

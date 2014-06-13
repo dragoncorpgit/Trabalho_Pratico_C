@@ -16,7 +16,6 @@
                    projectFiles="true">
       <itemPath>date.c</itemPath>
       <itemPath>garage.c</itemPath>
-      <itemPath>linkedList.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>material.c</itemPath>
       <itemPath>mechanic.c</itemPath>
@@ -48,8 +47,6 @@
       <item path="date.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="linkedList.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -85,8 +82,6 @@
       <item path="date.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="linkedList.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>

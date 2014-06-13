@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/date.o \
 	${OBJECTDIR}/garage.o \
-	${OBJECTDIR}/linkedList.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/material.o \
 	${OBJECTDIR}/mechanic.o
@@ -76,11 +75,6 @@ ${OBJECTDIR}/garage.o: garage.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/garage.o garage.c
-
-${OBJECTDIR}/linkedList.o: linkedList.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linkedList.o linkedList.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}

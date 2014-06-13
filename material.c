@@ -62,7 +62,13 @@ void *material_fillMaterial(tMaterial *newMaterial, char denomination[], char nS
 
 void *material_add(tMaterial *material, tMaterial elementToAdd)
 {
- 
+ material=realloc(material, (sizeof(material)+sizeof(elementToAdd)));
+ if(material!=NULL)
+ {
+  (*material)[(*material).numMaterial]=elementToAdd;
+  (*material).numMaterial++;
+ }
+ return material;
 }
 
 void *material_replace(tMaterial *material, tMaterial elementToEdit)
@@ -75,7 +81,7 @@ void *material_remove(tMaterial *material, char nSerie[12])
  
 }
 
-void material_findMaterial()
+void *material_findMaterial(tMaterial material)
 {
  
 }
