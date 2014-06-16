@@ -1,3 +1,4 @@
+
 typedef enum {
     CARS = 0,
     SIMPLE_MOTORCYLES = 1,
@@ -13,5 +14,5 @@ bool IsSpecialityValid (unsigned short int inputSpeciality) {
         return false;
     }else {
         return true;
-    }
-}a
+    }aa
+}
