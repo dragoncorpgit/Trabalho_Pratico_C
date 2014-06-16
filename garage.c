@@ -180,6 +180,7 @@ int SearchForArea(tGarage *garage, int currentNrOfGarages) {
             
             nrOfOccurrences++;
             nrOfGarageFound = (unsigned short int *) realloc(nrOfGarageFound, nrOfOccurrences * sizeof (unsigned short int));
+            *nrOfGarageFound =i; 
         }
         i++;
     }
@@ -193,6 +194,7 @@ int SearchForArea(tGarage *garage, int currentNrOfGarages) {
 }
 
 int multiplyOcurrencesFound(unsigned short int nrOfOccurrences, int *nrOfGarageFound) {
+    int i;
     printf("\mForam encontrados diversos resultados");
     do {
         printf("\nSelecione o numero da garagem que pretende");
@@ -207,6 +209,31 @@ int multiplyOcurrencesFound(unsigned short int nrOfOccurrences, int *nrOfGarageF
 
 int SearchForSpeciality(tGarage *garage) {
     unsigned short int inputSpeciality;
+    unsigned short int i = 0, nrOfOccurrences = 0, inputNr = 0;
+    unsigned short int *nrOfGarageFound = NULL;
+    
+    
+    printf("\nInsira a área da oficina:");
+    scanf("%f", &inputArea);
+
+    while (inputArea != garage[i].area || i < currentNrOfGarages) {
+        if (inputArea == garage[i].area) {
+            
+            nrOfOccurrences++;
+            nrOfGarageFound = (unsigned short int *) realloc(nrOfGarageFound, nrOfOccurrences * sizeof (unsigned short int));
+            *nrOfGarageFound =i; 
+        }
+        i++;
+    }
+
+    if (nrOfOccurrences > 1) {
+        multiplyOcurrencesFound(nrOfOccurrences, nrOfGarageFound);
+    } else {
+
+        return *nrOfGarageFound;
+    }
+    
+    
 }
 
 int SearchForFloor(tGarage *garage) {
@@ -245,5 +272,9 @@ bool IsValidFloor(unsigned short int inputFloor) {
     } else {
         return true;
     }
+}
+
+void ShowSpecilityList () {
+    printf ("");
 }
 

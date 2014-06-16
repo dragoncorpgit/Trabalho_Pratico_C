@@ -39,7 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/garage.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/material.o \
-	${OBJECTDIR}/mechanic.o
+	${OBJECTDIR}/mechanic.o \
+	${OBJECTDIR}/speciality.o
 
 
 # C Compiler Flags
@@ -90,6 +91,11 @@ ${OBJECTDIR}/mechanic.o: mechanic.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mechanic.o mechanic.c
+
+${OBJECTDIR}/speciality.o: speciality.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/speciality.o speciality.c
 
 # Subprojects
 .build-subprojects:
