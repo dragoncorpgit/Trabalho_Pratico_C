@@ -19,6 +19,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>material.c</itemPath>
       <itemPath>mechanic.c</itemPath>
+      <itemPath>speciality.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

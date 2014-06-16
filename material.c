@@ -5,7 +5,7 @@ bool material_setDenomination(char newDenomination[], char* denomination)
  int denominationLenght=strlen(newDenomination);
  if(denominationLenght!=-1 && denominationLenght>-1)
  {
-  denomination=realloc(denomination, strlen(newDenomination)*sizeof(char));
+  denomination=(char*)realloc(denomination, denominationLenght*sizeof(char));
   if(denomination!=NULL)
   {
    strcpy((*denomination),newDenomination);
@@ -61,7 +61,7 @@ void material_fillMaterial(tMaterial *newMaterial, char denomination[], char nSe
 
 void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial elementToAdd)
 {
- material=realloc(material, (sizeof(material)+sizeof(elementToAdd)));
+ material=(tMaterial*)realloc(material, (sizeof(material)+sizeof(elementToAdd)));
  if(material!=NULL)
  {
   (*material)[*numMaterial]=elementToAdd;
@@ -101,10 +101,61 @@ void *material_remove(tMaterial *material, unsigned int position, unsigned int *
   }
  }
  (*numMaterial)++;
- return realloc(material, (sizeof(*material)-length));
+ return (tMaterial*)realloc(material, (sizeof(*material)-length));
 }
 
-void *material_findMaterial(tMaterial material)
+void *material_searchMaterial(tMaterial material)
 {
  
+}
+
+void material_binarySearch(tMaterial *material, int numMaterial, char *denToFind)
+{
+ unsigned int low=0;
+ unsigned int high=numMaterial;
+ unsigned short int middle;
+ bool finded=false;
+ while(low<=high && finded==false)
+ {
+  middle=(low+high)/2;
+  strlen(*denToFind);
+  if(strcmp((*(*material)[middle].denomination),(*denToFind))==0)
+  {
+   finded=true;
+  }
+  else
+  {
+   if(strcmp((*(*material)[middle].denomination),(*denToFind))>0)
+   {
+    low=middle;
+   }
+   else
+   {
+    high=middle;
+   }
+  }
+ }
+}
+
+void material_bubbleSort(tMaterial* material, int numMaterial)
+{
+ bool haTroca=true;
+ int i;
+ int j=-1;
+ tMaterial exchange;
+ while(j<(numMaterial) && haTroca==true)
+ {
+  haTroca=false;
+  j++;
+  for(i=0;i<(numMaterial-j-1);i++)
+  {
+   if(strcmp((*(*material)[i].denomination),(*(*material)[i+1].denomination))>0)
+   {
+    exchange=(*material)[i];
+    (*material)[i]=(*material)[i+1];
+    (*material)[i+1]=exchange;
+    haTroca=true;
+   }
+  }
+ }
 }
