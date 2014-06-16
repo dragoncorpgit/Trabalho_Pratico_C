@@ -104,37 +104,28 @@ void *material_remove(tMaterial *material, unsigned int position, unsigned int *
  return (tMaterial*)realloc(material, (sizeof(*material)-length));
 }
 
-void *material_searchMaterial(tMaterial material)
+void material_searchMaterial(tMaterial *material, int numMaterial, char *denToFind)
 {
- 
-}
-
-void material_binarySearch(tMaterial *material, int numMaterial, char *denToFind)
-{
- unsigned int low=0;
- unsigned int high=numMaterial;
- unsigned short int middle;
- bool finded=false;
- while(low<=high && finded==false)
+ int i;
+ char *str;
+ tMaterial *fundMaterial=NULL;
+ unsigned int nMatFund=0;
+ for(i=0;i<numMaterial;i++)
  {
-  middle=(low+high)/2;
-  strlen(*denToFind);
-  if(strcmp((*(*material)[middle].denomination),(*denToFind))==0)
+  str=strstr((*(*material)[i].denomination),(*denToFind));
+  if(str!=NULL)
   {
-   finded=true;
-  }
-  else
-  {
-   if(strcmp((*(*material)[middle].denomination),(*denToFind))>0)
-   {
-    low=middle;
-   }
-   else
-   {
-    high=middle;
-   }
+   fundMaterial=realloc(sizeof(fundMaterial)+sizeof((*material)[i]));
+   (*fundMaterial)[nMatFund]=(*material)[i];
+   nMatFund++;
   }
  }
+ material_outputSearch();
+}
+
+void material_outputSearch(tMaterial *)
+{
+ 
 }
 
 void material_bubbleSort(tMaterial* material, int numMaterial)
