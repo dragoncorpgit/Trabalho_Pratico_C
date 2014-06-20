@@ -28,11 +28,6 @@ void material_setNSerie(char newNSerie[12], char nSerie[12])
  strcpy((nSerie),newNSerie);
 }
 
-void material_setPrice(float newPrice, float* price)
-{
- (*price)=newPrice;
-}
-
 bool material_setAcquisitionDate(Date newDate, Date* date)
 {
  (*date)=newDate;
@@ -46,17 +41,19 @@ bool material_setAcquisitionDate(Date newDate, Date* date)
  }
 }
 
-void material_fillMaterial(tMaterial *newMaterial, char denomination[], char nSerie[12], Date acquisitionDate, float price)
+tMaterial material_fillMaterial(char denomination[], char nSerie[12], Date acquisitionDate, float price)
 {
- (*newMaterial).denomination=NULL;
- if(material_setDenomination(denomination, (*newMaterial).denomination))
+ tMaterial newMaterial;
+ (newMaterial).denomination=NULL;
+ if(material_setDenomination(denomination, (newMaterial).denomination))
  {
-  if(material_setAcquisitionDate(acquisitionDate, &(*newMaterial).acquisitionDate))
+  if(material_setAcquisitionDate(acquisitionDate, &(newMaterial).acquisitionDate))
   {
-   material_setPrice(price, &(*newMaterial).price);
-   material_setNSerie(nSerie, &(*newMaterial).nSerie);
+   (newMaterial).price=price;
+   material_setNSerie(nSerie, &(newMaterial).nSerie);
   }
  }
+ return newMaterial;
 }
 
 void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial elementToAdd)
@@ -70,9 +67,11 @@ void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial eleme
  return material;
 }
 
-void *material_replace(tMaterial *material, tMaterial elementToEdit)
+void *material_replace(tMaterial *material, tMaterial elementToEdit, unsigned int numMaterial ,unsigned int index)
 {
- 
+ (*material)[index]=elementToEdit;
+ material_sort(material, numMaterial);
+ return material;
 }
 
 void *material_remove(tMaterial *material, unsigned int position, unsigned int *numMaterial)
@@ -120,15 +119,56 @@ void material_searchMaterial(tMaterial *material, int numMaterial, char *denToFi
    nMatFund++;
   }
  }
- material_outputSearch();
+ material_outputSearch(fundMaterial, nMatFund);
 }
 
-void material_outputSearch(tMaterial *)
+void material_outputSearch(tMaterial *material, int nMat)
 {
+ int i;
+ bool z=false;
+ int input=-1;
+ for(i=0;i<nMat;i++)
+ {
+  printf("ID Procura: %i\nSerial Number: %s\nDenomination: %s\nPrice: %f\n__________________________",i,(*material)[i].nSerie,(*(*material)[i].denomination, (*material)[i].price));
+ }
+ if(nMat>0)
+ {
+  printf("ID Procura: %i \nDescrição: Procurar sobre esta procura\n___________________________", -2);
+ }
+ printf("Insira um valor fora de %i a %i para ir para o menu principal", -2, nMat);
+ do
+ {
+  input=-1;
+  if(z)
+  {
+   printf("Não existe nenhum material assiciado ao número intruduzido!");
+  }
+  else
+  {
+   if(input==-1)
+   {
+    z=true;
+   }
+  }
+  printf("Intruduza um ID de procura apresentados na lista");
+  scanf("%i",&input);
+ }while(input>nMat&&input<0);
  
+ if(input>0&&input<nMat)
+ {
+  ///////
+  printf("Serial Number: %s\nDenomination: %s\nPrice: %f\n__________________________",(*material)[input].nSerie,(*(*material)[input].denomination, (*material)[input].price));
+ }
+ else
+ {
+  if(input==-2)
+  {
+   material_searchMaterial(material, nMat, );
+  }
+ }
 }
 
-void material_bubbleSort(tMaterial* material, int numMaterial)
+void material_sort(tMaterial* material, unsigned int numMaterial)
 {
  bool haTroca=true;
  int i;

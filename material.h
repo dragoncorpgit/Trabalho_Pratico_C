@@ -26,5 +26,6 @@
  void material_setPrice(float, float*);
  bool material_setAcquisitionDate(Date, Date*);
  void *material_fillMaterial(tMaterial*, char[], char[], Date, float);
+ void material_outputSearch(tMaterial*, unsigned int);
 
 #endif	/* MATERIAL_H */
