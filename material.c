@@ -1,37 +1,35 @@
 #include "material.h"
 
-bool material_setDenomination(char newDenomination[], char* denomination)
+char *material_inputDenomination()
 {
- int denominationLenght=strlen(newDenomination);
- if(denominationLenght!=-1 && denominationLenght>-1)
- {
-  denomination=(char*)realloc(denomination, denominationLenght*sizeof(char));
-  if(denomination!=NULL)
-  {
-   strcpy((*denomination),newDenomination);
-   return true;
-  }
-  else
-  {
-   return false;
-  }
- }
- else
- {
-  return false;
- }
- newDenomination=NULL;
+ char *denomination=NULL;
+ //input
+ 
+ return char*;
 }
 
-void material_setNSerie(char newNSerie[12], char nSerie[12])
+char *material_inputNSerie()
 {
- strcpy((nSerie),newNSerie);
+ char nSerie[12];
+ //input
+ 
+ return nSerie;
 }
 
-bool material_setAcquisitionDate(Date newDate, Date* date)
+bool material_inputAcquisitionDate(Date *newDate)
 {
- (*date)=newDate;
- if(isCorrectDate(*date))
+ unsigned short int day;
+ unsigned short int month;
+ unsigned short int year;
+ printf("\nIntruduza a data da aquisição do produto:\n");
+ printf("\nDia (ex. 02): ");
+ scanf("%hu",&day);
+ printf("\nMês (ex. 02): ");
+ scanf("%hu",&month);
+ printf("\nAno (ex. 2014): ");
+ scanf("%hu",&year);
+ (*newDate)=fillDate(day, month, year);
+ if(isCorrectDate(newDate))
  {
   return true;
  }
@@ -41,18 +39,30 @@ bool material_setAcquisitionDate(Date newDate, Date* date)
  }
 }
 
-tMaterial material_fillMaterial(char denomination[], char nSerie[12], Date acquisitionDate, float price)
+float material_inputPrice()
+{
+ float price;
+ printf("\nPreço: ");
+ scanf("%f", &price);
+ while(price<0)
+ {
+  printf("\nPreco menor que 0");
+  printf("\nPreço: ");
+  scanf("%f", &price);
+ }
+ return price;
+}
+
+tMaterial material_fillMaterial()
 {
  tMaterial newMaterial;
- (newMaterial).denomination=NULL;
- if(material_setDenomination(denomination, (newMaterial).denomination))
+ newMaterial.denomination=material_inputDenomination();
+ while(!material_inputAcquisitionDate(&(newMaterial.acquisitionDate)))
  {
-  if(material_setAcquisitionDate(acquisitionDate, &(newMaterial).acquisitionDate))
-  {
-   (newMaterial).price=price;
-   material_setNSerie(nSerie, &(newMaterial).nSerie);
-  }
+  printf("\nData inválida");
  }
+ newMaterial.nSerie=material_inputNSerie();
+ newMaterial.price=material_inputPrice();
  return newMaterial;
 }
 
