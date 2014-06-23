@@ -21,12 +21,11 @@
 
  unsigned int numMaterial=-1;
  
- char *material_inputDenomination();
- char *material_inputNSerie();
- bool material_inputAcquisitionDate(Date*);
- float material_inputPrice();
  tMaterial material_fillMaterial();
- void *material_add(tMaterial*,unsigned int,tMaterial);
- 
+ tMaterial *material_add(tMaterial*, unsigned int*,tMaterial, bool);
+ tMaterial *material_replace(tMaterial*, tMaterial, unsigned int);
+ tMaterial *material_remove(tMaterial*, unsigned int*);
+ int material_searchMaterial(tMaterial*, int,unsigned int);
+ void material_outputSearch(tMaterial, unsigned int);
 
 #endif	/* MATERIAL_H */
