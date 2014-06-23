@@ -105,41 +105,52 @@ unsigned int *material_addID(unsigned int *fID, unsigned int numMaterial,unsigne
  return fID;
 }
 
-tMaterial *material_replace(tMaterial *material, tMaterial elementToEdit, unsigned int numMaterial ,unsigned int index)
+tMaterial *material_replace(tMaterial *material, tMaterial elementToEdit, unsigned int numMaterial)
 {
- (*material)[index]=elementToEdit;
- material_sort(material, numMaterial);
+ unsigned int index=material_searchMaterial(material, numMaterial,NULL);
+ if(index!=-1)
+ {
+  (*material)[index]=elementToEdit;
+  material_sort(material, numMaterial);
+ }
  return material;
 }
 
 tMaterial *material_remove(tMaterial *material, unsigned int *numMaterial)
 {
- unsigned int position;
- int i;
- int length;
- tMaterial toRemove;
- for(i=position;i<(*numMaterial);i++)
+ unsigned int position=material_searchMaterial(material, numMaterial,NULL);
+ if(position!=-1)
  {
-  if(i==position)
+  int i;
+  int length;
+  tMaterial toRemove;
+  for(i=position;i<(*numMaterial);i++)
   {
-   length=sizeof((*material)[position]);
-   toRemove=(*material)[position];
-  }
-  else
-  {
-   if((i+1)<(*numMaterial))
+   if(i==position)
    {
-    (*material)[i]=(*material)[i+1];
+    length=sizeof((*material)[position]);
+    toRemove=(*material)[position];
    }
    else
    {
-    (*material)[i]=toRemove;
-    free((*material)[i].denomination);
+    if((i+1)<(*numMaterial))
+    {
+     (*material)[i]=(*material)[i+1];
+    }
+    else
+    {
+     (*material)[i]=toRemove;
+     free((*material)[i].denomination);
+    }
    }
-  }
+  } 
+  (*numMaterial)++;
+  return (tMaterial*)realloc(material, (sizeof(*material)-length));
  }
- (*numMaterial)++;
- return (tMaterial*)realloc(material, (sizeof(*material)-length));
+ else
+ {
+  return material;
+ }
 }
 
 int material_searchMaterial(tMaterial *material, int numMaterial,unsigned int *fID)
@@ -149,8 +160,29 @@ int material_searchMaterial(tMaterial *material, int numMaterial,unsigned int *f
  unsigned int fundMaterial=0;
  char* str=NULL;
  char *denToFind;
+ bool byDenomination=true;
  
- 
+ if(fID!=NULL)
+ {
+  printf("\nID (-1 para procurar por descricao): ");
+  scanf("%i",&i);
+ }
+ if(i!=-1)
+ {
+  byDenomination=false;
+  fundMaterial=i;
+ }
+ else
+ {
+  
+ }
+ printf("\nDescrição a procurar: ");
+ scanf("%s",denToFind);
+ while(denToFind!=NULL)
+ {
+  printf("Erro ao ler descricção!\nDescrição a procurar: ");
+  scanf("%s",denToFind);
+ }
  
  for(i=0;i<numMaterial;i++)
  {
@@ -161,9 +193,13 @@ int material_searchMaterial(tMaterial *material, int numMaterial,unsigned int *f
    fID=(unsigned int*)material_addID(fID,fundMaterial-1,i);
   }
  }
- 
- if(fundMaterial==1)
+  
+ if(fundMaterial!=1 && byDenomination)
  {
+  for(i=0;i<fundMaterial;i++)
+  {
+   material_outputSearch((*material)[i]);
+  }
   return material_searchMaterial(fMaterial, fundMaterial, fID);
  }
  else
@@ -176,51 +212,10 @@ int material_searchMaterial(tMaterial *material, int numMaterial,unsigned int *f
  }
 }
 
-/*int material_outputSearch(tMaterial *material, int nMat)
+void material_outputSearch(tMaterial material, unsigned int id)
 {
- int i;
- bool z=false;
- int input=-1;
- for(i=0;i<nMat;i++)
- {
-  printf("ID Procura: %i\nSerial Number: %s\nDenomination: %s\nPrice: %f\n__________________________",i,(*material)[i].nSerie,(*(*material)[i].denomination, (*material)[i].price));
- }
- if(nMat>0)
- {
-  printf("ID Procura: %i \nDescrição: Procurar sobre esta procura\n___________________________", -2);
- }
- printf("Insira um valor fora de %i a %i para ir para o menu principal", -2, nMat);
- do
- {
-  input=-1;
-  if(z)
-  {
-   printf("Não existe nenhum material associado ao número intruduzido!");
-  }
-  else
-  {
-   if(input==-1)
-   {
-    z=true;
-   }
-  }
-  printf("Intruduza um ID de procura apresentados na lista");
-  scanf("%i",&input);
- }while(input>nMat&&input<0);
- 
- if(input>0&&input<nMat)
- {
-  ///////
-  printf("Serial Number: %s\nDenomination: %s\nPrice: %f\n__________________________",(*material)[input].nSerie,(*(*material)[input].denomination, (*material)[input].price));
- }
- else
- {
-  if(input==-2)
-  {
-   material_searchMaterial(material, nMat, );
-  }
- }
-}*/
+ printf("ID: %u\nSerial Number: %s\nDenomination: %s\nPrice: %f\n__________________________",id,material.nSerie,(*(material.denomination)), material.price);
+}
 
 void material_sort(tMaterial* material, unsigned int numMaterial)
 {
