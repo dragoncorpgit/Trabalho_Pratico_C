@@ -15,6 +15,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>date.c</itemPath>
+      <itemPath>dsfs.c</itemPath>
       <itemPath>garage.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>material.c</itemPath>
@@ -46,6 +47,8 @@
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsfs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -83,6 +86,8 @@
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dsfs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>

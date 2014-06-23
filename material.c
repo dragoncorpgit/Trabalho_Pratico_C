@@ -3,40 +3,56 @@
 char *material_inputDenomination()
 {
  char *denomination=NULL;
- //input
- 
- return char*;
+ do
+ {
+  printf("Descrição: ");
+  denomination=(char*)fgets(denomination,750,stdin);
+ }while(denomination!=NULL);
+ return denomination;
 }
 
 char *material_inputNSerie()
 {
  char nSerie[12];
- //input
- 
+ do
+ {
+  printf("\nNúmero de serie: ");
+  nSerie=fgets(nSerie,11,stdin);
+ }while(nSerie!=NULL);
  return nSerie;
 }
 
-bool material_inputAcquisitionDate(Date *newDate)
+Date material_inputAcquisitionDate()
 {
+ Date newDate;
  unsigned short int day;
  unsigned short int month;
  unsigned short int year;
- printf("\nIntruduza a data da aquisição do produto:\n");
- printf("\nDia (ex. 02): ");
- scanf("%hu",&day);
- printf("\nMês (ex. 02): ");
- scanf("%hu",&month);
- printf("\nAno (ex. 2014): ");
- scanf("%hu",&year);
- (*newDate)=fillDate(day, month, year);
- if(isCorrectDate(newDate))
+ do
  {
-  return true;
- }
- else
- {
-  return false;
- }
+  printf("\nIntruduza a data da aquisição do produto!\n");
+  do
+  {
+   printf("\nDia (ex. 02): ");
+   scanf("%hu",&day);
+  }while(day<1||day>32);
+  
+  do
+  {
+   printf("\nMês (ex. 02): ");
+   scanf("%hu",&month);
+  }while(month<1||month>12);
+  
+  do
+  {
+   printf("\nAno (ex. 2014): ");
+   scanf("%hu",&year);
+  }while(year<0);
+  
+  newDate=fillDate(day, month, year);
+  
+ }while(isCorrectDate(newDate));
+ return newDate;
 }
 
 float material_inputPrice()
@@ -56,17 +72,15 @@ float material_inputPrice()
 tMaterial material_fillMaterial()
 {
  tMaterial newMaterial;
+ 
  newMaterial.denomination=material_inputDenomination();
- while(!material_inputAcquisitionDate(&(newMaterial.acquisitionDate)))
- {
-  printf("\nData inválida");
- }
- newMaterial.nSerie=material_inputNSerie();
+ newMaterial.acquisitionDate=material_inputAcquisitionDate();
+ strcpy(newMaterial.nSerie,material_inputNSerie());
  newMaterial.price=material_inputPrice();
  return newMaterial;
 }
 
-void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial elementToAdd)
+tMaterial *material_add(tMaterial *material, unsigned int *numMaterial,tMaterial elementToAdd, bool isToOrder)
 {
  material=(tMaterial*)realloc(material, (sizeof(material)+sizeof(elementToAdd)));
  if(material!=NULL)
@@ -74,18 +88,33 @@ void *material_add(tMaterial *material, unsigned int numMaterial,tMaterial eleme
   (*material)[*numMaterial]=elementToAdd;
   (*numMaterial)++;
  }
+ if(isToOrder)
+ {
+  material_sort(material, numMaterial);
+ }
  return material;
 }
 
-void *material_replace(tMaterial *material, tMaterial elementToEdit, unsigned int numMaterial ,unsigned int index)
+unsigned int *material_addID(unsigned int *fID, unsigned int numMaterial,unsigned int elementToAdd)
+{
+ fID=(int*)realloc(fID, (sizeof(unsigned int)*(numMaterial)));
+ if(fID!=NULL)
+ {
+  (*fID)[numMaterial]=elementToAdd;
+ }
+ return fID;
+}
+
+tMaterial *material_replace(tMaterial *material, tMaterial elementToEdit, unsigned int numMaterial ,unsigned int index)
 {
  (*material)[index]=elementToEdit;
  material_sort(material, numMaterial);
  return material;
 }
 
-void *material_remove(tMaterial *material, unsigned int position, unsigned int *numMaterial)
+tMaterial *material_remove(tMaterial *material, unsigned int *numMaterial)
 {
+ unsigned int position;
  int i;
  int length;
  tMaterial toRemove;
@@ -113,26 +142,41 @@ void *material_remove(tMaterial *material, unsigned int position, unsigned int *
  return (tMaterial*)realloc(material, (sizeof(*material)-length));
 }
 
-void material_searchMaterial(tMaterial *material, int numMaterial, char *denToFind)
+int material_searchMaterial(tMaterial *material, int numMaterial,unsigned int *fID)
 {
  int i;
- char *str;
- tMaterial *fundMaterial=NULL;
- unsigned int nMatFund=0;
+ tMaterial *fMaterial=NULL;
+ unsigned int fundMaterial=0;
+ char* str=NULL;
+ char *denToFind;
+ 
+ 
+ 
  for(i=0;i<numMaterial;i++)
  {
-  str=strstr((*(*material)[i].denomination),(*denToFind));
+  str=strstr((*(*material)[i].denomination),denToFind);
   if(str!=NULL)
   {
-   fundMaterial=realloc(sizeof(fundMaterial)+sizeof((*material)[i]));
-   (*fundMaterial)[nMatFund]=(*material)[i];
-   nMatFund++;
+   fMaterial=(tMaterial*)material_add(fMaterial, &fundMaterial, (*material)[i], false);
+   fID=(unsigned int*)material_addID(fID,fundMaterial-1,i);
   }
  }
- material_outputSearch(fundMaterial, nMatFund);
+ 
+ if(fundMaterial==1)
+ {
+  return material_searchMaterial(fMaterial, fundMaterial, fID);
+ }
+ else
+ {
+  fundMaterial=(*fID)[0];
+  free(fMaterial);
+  free(fID);
+  free(str);
+  return fundMaterial;
+ }
 }
 
-void material_outputSearch(tMaterial *material, int nMat)
+/*int material_outputSearch(tMaterial *material, int nMat)
 {
  int i;
  bool z=false;
@@ -151,7 +195,7 @@ void material_outputSearch(tMaterial *material, int nMat)
   input=-1;
   if(z)
   {
-   printf("Não existe nenhum material assiciado ao número intruduzido!");
+   printf("Não existe nenhum material associado ao número intruduzido!");
   }
   else
   {
@@ -176,7 +220,7 @@ void material_outputSearch(tMaterial *material, int nMat)
    material_searchMaterial(material, nMat, );
   }
  }
-}
+}*/
 
 void material_sort(tMaterial* material, unsigned int numMaterial)
 {
