@@ -13,8 +13,8 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=so
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalho_pratico_c
-OUTPUT_BASENAME=trabalho_pratico_c
+OUTPUT_PATH=${TESTDIR}/TestFiles/f1
+OUTPUT_BASENAME=f1
 PACKAGE_TOP_DIR=trabalhopraticoc/
 
 # Functions
