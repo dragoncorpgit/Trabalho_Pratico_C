@@ -1,4 +1,3 @@
-
 typedef enum {
     CARS = 0,
     SIMPLE_MOTORCYLES = 1,
