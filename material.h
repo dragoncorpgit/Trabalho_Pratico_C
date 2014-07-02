@@ -8,7 +8,8 @@
 #ifndef MATERIAL_H
 #define	MATERIAL_H
  
-#include <stdbool.h>
+ #include "date.h"
+ #include <stdbool.h>
  #include <string.h>
  #include <stdio.h>
  #include <stdlib.h>

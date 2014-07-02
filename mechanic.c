@@ -2,7 +2,7 @@
 
 typedef struct {
     char *name;
-    enumSpeciality speciality;
+    //enumSpeciality speciality;
     Date dateOfBirth;
     unsigned short int startWorkHour;
     unsigned short int stopWorkHour;
