@@ -10,6 +10,14 @@
  #include "date.h"
  #include <stdbool.h>
  #include <string.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+
+#ifdef __unix__
+ #define CLEAR_CMD "clear"
+#else
+ #define CLEAR_CMD "cls"
+#endif
 
  typedef struct
  {
@@ -18,14 +26,23 @@
   char nSerie[12];
   Date acquisitionDate;
  }tMaterial;
-
- unsigned int numMaterial=-1;
  
- tMaterial material_fillMaterial();
+ tMaterial *material_freeMemory(tMaterial*, unsigned int*);
+ tMaterial *material_menu(tMaterial*, unsigned int*);
  tMaterial *material_add(tMaterial*, unsigned int*,tMaterial, bool);
- tMaterial *material_replace(tMaterial*, tMaterial, unsigned int);
+ tMaterial *material_replace(tMaterial*, unsigned int);
  tMaterial *material_remove(tMaterial*, unsigned int*);
- int material_searchMaterial(tMaterial*, int,unsigned int);
+ unsigned int *material_addID(unsigned int*, unsigned int,unsigned int);
+ char* material_removeNewLineFromPointer(char*);
+ char* material_inputDenomination();
+ char* material_inputNSerie();
+ Date material_inputAcquisitionDate();
+ float material_inputPrice();
+ tMaterial material_fillMaterial();
+ int material_searchMaterial(tMaterial*, unsigned int,unsigned int*);
  void material_outputSearch(tMaterial, unsigned int);
-
+ void material_listAll(tMaterial*, unsigned int);
+ void material_removeNewLineFromArray(char[]);
+ void material_sort(tMaterial*, unsigned int);
+ 
 #endif	/* MATERIAL_H */
