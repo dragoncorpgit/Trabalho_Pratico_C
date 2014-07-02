@@ -5,7 +5,10 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>date.h</itemPath>
+      <itemPath>garage.h</itemPath>
       <itemPath>material.h</itemPath>
+      <itemPath>speciality.h</itemPath>
+      <itemPath>time.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -62,6 +65,8 @@
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="garage.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="material.c" ex="false" tool="0" flavor2="0">
@@ -71,6 +76,10 @@
       <item path="mechanic.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="speciality.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="speciality.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="time.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -108,6 +117,8 @@
       </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="garage.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="material.c" ex="false" tool="0" flavor2="0">
@@ -117,6 +128,10 @@
       <item path="mechanic.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="speciality.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="speciality.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="time.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
