@@ -7,17 +7,11 @@
 
 #ifndef MATERIAL_H
 #define	MATERIAL_H
- #include "date.h"
- #include <stdbool.h>
- #include <string.h>
- #include <stdio.h>
- #include <stdlib.h>
-
-#ifdef __unix__
- #define CLEAR_CMD "clear"
-#else
- #define CLEAR_CMD "cls"
-#endif
+ #ifdef __unix__
+  #define CLEAR_CMD "clear"
+ #else
+  #define CLEAR_CMD "cls"
+ #endif
 
  typedef struct
  {

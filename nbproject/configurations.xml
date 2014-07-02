@@ -42,12 +42,6 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
-      </compileType>
-      <item path="date.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="date.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <folder path="TestFiles/f1">
         <cTool>
           <incDir>
             <pElem>.</pElem>
@@ -61,7 +55,11 @@
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
-      </folder>
+      </compileType>
+      <item path="date.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
@@ -84,9 +82,15 @@
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -94,26 +98,14 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+        </linkerTool>
       </compileType>
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
       </item>
-      <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f1</output>
-        </linkerTool>
-      </folder>
       <item path="garage.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">

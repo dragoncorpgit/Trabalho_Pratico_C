@@ -1,7 +1,9 @@
+#include "date.h"
+#include "material.h"
+#include <stdbool.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "date.h"
-#include <stdbool.h>
 
 int main(void) 
 {

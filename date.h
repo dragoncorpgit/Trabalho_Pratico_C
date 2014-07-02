@@ -7,7 +7,6 @@
 
 #ifndef DATE_H
 #define	DATE_H
- #include <stdbool.h>
  typedef struct
  {
   unsigned short int day;
