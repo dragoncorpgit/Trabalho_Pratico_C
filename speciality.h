@@ -1,6 +1,7 @@
 #ifndef SPECIALITY_H
 #define	SPECIALITY_H
  #include <stdbool.h>
+ #include <stdio.h>
 
  typedef enum {
     CARS = 0,
