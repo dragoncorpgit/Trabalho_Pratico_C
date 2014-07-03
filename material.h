@@ -10,7 +10,6 @@
  
  #include "date.h"
  #include "additionalFunctions.h"
- #include <stdbool.h>
  #include <string.h>
  #include <stdio.h>
  #include <stdlib.h>
