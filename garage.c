@@ -408,15 +408,6 @@ void ShowListHangar() {
     printf("\n3 - Oeste\n");
 }
 
-bool IsSpecialityValid(unsigned short int inputSpeciality) {
-    if (inputSpeciality < 0 || inputSpeciality > 6) {
-        printf("\nEspecialidade inválido, insira corretamente");
-        return false;
-    } else {
-        return true;
-    }
-}
-
 void ShowSpecialityList() {
     printf("\n0 - Automoveis");
     printf("\n1 - Motociclos Simples");
@@ -432,10 +423,4 @@ void ShowAllGarageFields() {
     printf("\n2 - Especialidade");
     printf("\n3 - Piso");
     printf("\n4 - Hangar");
-}
-
-void ClearBuffer() 
-{
- int c;
- while((c = getchar()) != '\n' && c != EOF);
 }

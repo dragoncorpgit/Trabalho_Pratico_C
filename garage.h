@@ -1,17 +1,12 @@
-/* 
- * File:   garage.h
- * Author: gaming
- *
- * Created on July 2, 2014, 12:16 PM
- */
-
 #ifndef GARAGE_H
 #define	GARAGE_H
+ #include "material.h"
  #include "speciality.h"
  #include <stdio.h>
  #include <stdlib.h>
  #include <stdbool.h>
  #define MAX 10
+
 
 typedef enum hangar {
     NORTH = 0,
@@ -27,6 +22,7 @@ typedef struct {
     enumHangar hangarLocation;
     bool enable;
     enumSpeciality speciality;
+    
 } tGarage;
 
 void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
@@ -60,7 +56,6 @@ void ShowAllGarageFields();
 bool IsAreaValid(float *inputArea);
 bool IsInputSearchFieldValid (unsigned short int inputSearchField , 
         unsigned short int min, unsigned short int max);
-void ClearBuffer();
 
 #endif	/* GARAGE_H */
 

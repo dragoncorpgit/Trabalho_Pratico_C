@@ -9,16 +9,11 @@
 #define	MATERIAL_H
  
  #include "date.h"
+ #include "additionalFunctions.h"
  #include <stdbool.h>
  #include <string.h>
  #include <stdio.h>
  #include <stdlib.h>
-
- #ifdef __unix__
-  #define CLEAR_CMD "clear"
- #else
-  #define CLEAR_CMD "cls"
- #endif
 
  typedef struct
  {
@@ -34,7 +29,6 @@
  tMaterial *material_replace(tMaterial*, unsigned int);
  tMaterial *material_remove(tMaterial*, unsigned int*);
  unsigned int *material_addID(unsigned int*, unsigned int,unsigned int);
- char* material_removeNewLineFromPointer(char*);
  char* material_inputDenomination();
  char* material_inputNSerie();
  Date material_inputAcquisitionDate();
@@ -43,8 +37,6 @@
  int material_searchMaterial(tMaterial*, unsigned int,unsigned int*);
  void material_outputSearch(tMaterial, unsigned int);
  void material_listAll(tMaterial*, unsigned int);
- void material_removeNewLineFromArray(char[]);
  void material_sort(tMaterial*, unsigned int);
- void ClearBuffer();
  
 #endif	/* MATERIAL_H */

@@ -15,7 +15,7 @@ char* material_inputDenomination()
   denomination=(char*)calloc(strlen(input),sizeof(char));
  }
  strcpy(denomination,input);
- denomination=material_removeNewLineFromPointer(denomination);
+ denomination=string_removeNewLineFromPointer(denomination);
  return (char*)denomination;
 }
 
@@ -27,7 +27,7 @@ char* material_inputNSerie()
   printf("\nNúmero de serie: ");
   fgets(nSerie,12,stdin);
  }while(nSerie==NULL);
- material_removeNewLineFromArray(nSerie);
+ string_removeNewLineFromArray(nSerie);
  return nSerie;
 }
 
@@ -232,7 +232,7 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
  {
   printf("\nDescrição a procurar: ");
   fgets(denToFind,500,stdin);
-  material_removeNewLineFromArray(denToFind);
+  string_removeNewLineFromArray(denToFind);
  }
  
  for(i=0;i<numMaterial;i++)
@@ -357,49 +357,7 @@ tMaterial *material_menu(tMaterial* material, unsigned int* nMaterial)
  return (tMaterial*)material;
 }
 
-int string_lentgh(char* str)
+tMaterial *material_freeMemory(tMaterial* material, unsigned int* nMaterial)
 {
- int i=0;
- while(str[i]!='\0')
- {
-  i++;
- }
- return i;
-}
-
-char *material_removeNewLineFromPointer(char* str)
-{
- int j;
- int length=string_lentgh(str);
- for(j=0;j<length;j++)
- {
-  if(str[j]=='\n')
-  {
-   str[j]='\0';
-  }
- }
- if(string_lentgh(str)!=length)
- {
-  str=(char*)realloc(str,sizeof(char)*strlen(str));
- }
- return str;
-}
-
-void material_removeNewLineFromArray(char str[])
-{
- int j;
- int length=string_lentgh(str);
- for(j=0;j<length;j++)
- {
-  if(str[j]=='\n')
-  {
-   str[j]='\0';
-  }
- }
-}
-
-void ClearBuffer() 
-{
- int c;
- while((c = getchar()) != '\n' && c != EOF);
+ 
 }

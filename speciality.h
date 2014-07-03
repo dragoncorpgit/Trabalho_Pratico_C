@@ -9,7 +9,9 @@
     TRUCKS = 3,
     BOATS_MOTOR = 4,
     BOATS_BI_MOTOR = 5
-} enumSpeciality;
+ } enumSpeciality;
+
+ bool IsSpecialityValid (unsigned short int);
 
 #endif	/* SPECIALITY_H */
 
