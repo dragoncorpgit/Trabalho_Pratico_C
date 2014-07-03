@@ -1,10 +1,3 @@
-/* 
- * File:   speciality.h
- * Author: y2l1
- *
- * Created on July 2, 2014, 10:34 PM
- */
-
 #ifndef SPECIALITY_H
 #define	SPECIALITY_H
  #include <stdbool.h>

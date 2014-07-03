@@ -1,14 +1,14 @@
 #include "date.h"
 #include "material.h"
+#include "speciality.h"
+#include "garage.h"
 
 int main(void) 
 {
- tMaterial* material;
- unsigned int numMaterial;
+ tGarage* garage;
  short int choice;
  
- material=NULL;
- numMaterial=0;
+ garage=NULL;
  choice=-1;
  
  do

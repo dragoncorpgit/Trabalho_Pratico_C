@@ -45,5 +45,6 @@
  void material_listAll(tMaterial*, unsigned int);
  void material_removeNewLineFromArray(char[]);
  void material_sort(tMaterial*, unsigned int);
+ void ClearBuffer();
  
 #endif	/* MATERIAL_H */

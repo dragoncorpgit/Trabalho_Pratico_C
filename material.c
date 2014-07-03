@@ -6,7 +6,7 @@ char* material_inputDenomination()
  char *denomination=NULL;
  do
  {
-  //getchar();
+  ClearBuffer();
   printf("Descrição: ");
   fgets(input,500,stdin);
  }while(input==NULL);
@@ -44,19 +44,19 @@ Date material_inputAcquisitionDate()
   {
    printf("\nDia (ex. 02): ");
    scanf("%hu",&day);
-   getchar();
+   ClearBuffer();
   }while(day<1||day>32);
   do
   {
    printf("\nMês (ex. 02): ");
    scanf("%hu",&month);
-   getchar();
+   ClearBuffer();
   }while(month<1||month>12);
   do
   {
    printf("\nAno (ex. 2014): ");
    scanf("%hu",&year);
-   getchar();
+   ClearBuffer();
   }while(year<0);
   fillDate(&newDate,day, month, year);
   
@@ -71,7 +71,7 @@ float material_inputPrice()
  {
   printf("\nPreço: ");
   scanf("%f", &price);
-  getchar();
+  ClearBuffer();
  }while(price<0);
  return price;
 }
@@ -125,7 +125,7 @@ tMaterial *material_replace(tMaterial *material, unsigned int numMaterial)
   printf("\n4 - Data");
   printf("\n-1 - Sair\n");
   scanf("%i",&choice);
-  getchar();
+  ClearBuffer();
  }while(choice==0);
  if(choice!=-1)
  {
@@ -190,7 +190,7 @@ tMaterial *material_remove(tMaterial *material, unsigned int *numMaterial)
      else
      {
       (material)[i]=toRemove;
-      free((*material[i].denomination));
+      free(material[i].denomination);
      }
     }
    } 
@@ -221,7 +221,7 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
  {
   printf("\nID: -1(para re-procurar por descricao): ");
   scanf("%i",&i);
-  getchar();
+  ClearBuffer();
   if(i!=-1)
   {
    byDenomination=false;
@@ -328,7 +328,7 @@ tMaterial *material_menu(tMaterial* material, unsigned int* nMaterial)
   printf("\n0 - Menu anterior");
   printf("\nQuero: ");
   scanf("%hu",&choice);
-  getchar();
+  ClearBuffer();
   switch(choice)
   {
    case 1:system(CLEAR_CMD); 
@@ -396,4 +396,10 @@ void material_removeNewLineFromArray(char str[])
    str[j]='\0';
   }
  }
+}
+
+void ClearBuffer() 
+{
+ int c;
+ while((c = getchar()) != '\n' && c != EOF);
 }

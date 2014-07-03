@@ -7,15 +7,11 @@
 
 #ifndef GARAGE_H
 #define	GARAGE_H
-
-typedef enum {
-    CARS = 0,
-    SIMPLE_MOTORCYLES = 1,
-    HIGH_CYLINDER_MOTORCYLES = 2,
-    TRUCKS = 3,
-    BOATS_MOTOR = 4,
-    BOATS_BI_MOTOR = 5
-} enumSpeciality;
+ #include "speciality.h"
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <stdbool.h>
+ #define MAX 10
 
 typedef enum hangar {
     NORTH = 0,

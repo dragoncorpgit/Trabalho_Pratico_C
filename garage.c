@@ -1,43 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "garage.h"
-#define MAX 10
 
-
-
-
-/*int main(void) {
-    unsigned short int currentNrOfGarages = 0;
-    tGarage garage[10];
-    //AddGarage(garage, &currentNrOfGarages);
-    //printf ("%hu", currentNrOfGarages);
-    garage[0].area = 1;
-    garage[0].enable = true;
-    garage[0].floor = 1;
-    garage[0].hangarLocation = 0;
-    garage[0].number = 1;
-    garage[0].speciality = 1;
-
-
-    garage[1].area = 1;
-    garage[1].enable = true;
-    garage[1].floor = 1;
-    garage[1].hangarLocation = 0;
-    garage[1].number = 2;
-    garage[1].speciality = 1;
-
-    currentNrOfGarages += 2;
-    ListGarage(garage, currentNrOfGarages);
-    AddGarage(garage, &currentNrOfGarages);
-    //DeleteGarage(garage, &currentNrOfGarages);
-    //SeachGarage(garage, currentNrOfGarages);
-    //ListGarage(garage, currentNrOfGarages);
-    EditGarage(garage, currentNrOfGarages);
-    ListGarage(garage, currentNrOfGarages);
-    return (EXIT_SUCCESS);
-}
-*/
 void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages) {
     unsigned short int inputHangar, inputFloor, inputSpeciality;
     float inputArea;
@@ -472,7 +434,8 @@ void ShowAllGarageFields() {
     printf("\n4 - Hangar");
 }
 
-void ClearBuffer() {
-    int c;
-while((c = getchar()) != '\n' && c != EOF);
+void ClearBuffer() 
+{
+ int c;
+ while((c = getchar()) != '\n' && c != EOF);
 }
