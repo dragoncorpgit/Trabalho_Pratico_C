@@ -15,6 +15,6 @@ int main(void)
  {
   
  }while(choice!='S'||choice!='s');
- 
+ //Free all dynamic memory
  return (EXIT_SUCCESS);
 }
