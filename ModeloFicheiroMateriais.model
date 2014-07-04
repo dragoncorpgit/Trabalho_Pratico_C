@@ -1,0 +1,11 @@
+{REPETE DE OFICINA EM OFICINA}
+(ID Oficina)
+(Numero de materiais na oficina)
+{REPETE DE MATERIAL EM MATERIAL
+(Comprimento da descricao com \0)
+(Descrição)
+(NSerie)
+(Dia)
+(Mes)
+(Ano)
+(Preço)
