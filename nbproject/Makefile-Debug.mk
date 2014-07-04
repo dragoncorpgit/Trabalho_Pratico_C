@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/2047855846/additionalFunctions.o \
 	${OBJECTDIR}/date.o \
 	${OBJECTDIR}/garage.o \
 	${OBJECTDIR}/main.o \
@@ -67,11 +66,6 @@ LDLIBSOPTIONS=
 ${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/2047855846/additionalFunctions.o: /home/y2l1/Dropbox/NetBeansProjects/Projects_C/run/additionalFunctions.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2047855846
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2047855846/additionalFunctions.o /home/y2l1/Dropbox/NetBeansProjects/Projects_C/run/additionalFunctions.c
 
 ${OBJECTDIR}/date.o: date.c 
 	${MKDIR} -p ${OBJECTDIR}
