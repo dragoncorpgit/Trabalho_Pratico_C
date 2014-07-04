@@ -29,7 +29,6 @@
  tMaterial *material_remove(tMaterial*, unsigned int*);
  unsigned int *material_addID(unsigned int*, unsigned int,unsigned int);
  char* material_inputDenomination();
- char* material_inputNSerie();
  Date material_inputAcquisitionDate();
  float material_inputPrice();
  tMaterial material_fillMaterial();
@@ -37,5 +36,5 @@
  void material_outputSearch(tMaterial, unsigned int);
  void material_listAll(tMaterial*, unsigned int);
  void material_sort(tMaterial*, unsigned int);
- 
+ void material_inputNSerie(char[]);
 #endif	/* MATERIAL_H */

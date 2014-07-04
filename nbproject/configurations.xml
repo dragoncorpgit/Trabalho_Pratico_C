@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c</itemPath>
       <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h</itemPath>
       <itemPath>date.h</itemPath>
       <itemPath>garage.h</itemPath>
@@ -19,6 +18,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c</itemPath>
       <itemPath>date.c</itemPath>
       <itemPath>garage.c</itemPath>
       <itemPath>main.c</itemPath>

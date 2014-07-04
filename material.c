@@ -13,16 +13,18 @@ char* material_inputDenomination()
  return (char*)denomination;
 }
 
-char* material_inputNSerie()
+void material_inputNSerie(char nSerie[])
 {
- char nSerie[12];
  do
  {
   printf("\nNúmero de serie: ");
   fgets(nSerie,12,stdin);
+  if(!(string_lentgh(nSerie)<11))
+  {
+   ClearBuffer();
+  }
  }while(nSerie==NULL);
  string_removeNewLineFromArray(nSerie);
- return nSerie;
 }
 
 Date material_inputAcquisitionDate()
@@ -130,7 +132,7 @@ tMaterial *material_replace(tMaterial *material, unsigned int numMaterial)
    elementToEdit=material[index];
    switch(choice)
    {
-    case 1: strcpy(elementToEdit.nSerie,material_inputNSerie());
+    case 1: material_inputNSerie(elementToEdit.nSerie);
           break;
     case 2: elementToEdit.denomination=material_inputDenomination();
           break;
@@ -242,38 +244,53 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
   denToFind=string_removeNewLineFromPointer(denToFind);
  }
  
- for(i=0;i<numMaterial;i++)
+ if(byDenomination)
  {
-  str=strstr((material[i].denomination),denToFind);
-  if(str!=NULL)
+  for(i=0;i<numMaterial;i++)
   {
-   fMaterial=(tMaterial*)material_add(fMaterial, &fundMaterial, (material)[i], false);
-   fundID=(unsigned int*)material_addID(fundID,fundMaterial-1,i);
-  }
- }
-  
- if(fundMaterial!=0)
- {
-  if(fundMaterial!=1)
-  {
-   for(i=0;i<fundMaterial;i++)
+   str=strstr((material[i].denomination),denToFind);
+   if(str!=NULL)
    {
-    material_outputSearch(material[i],fundID[i]);
+    if(fID==NULL)
+    {
+     fMaterial=(tMaterial*)material_add(fMaterial, &fundMaterial, material[i], false);
+     fundID=(unsigned int*)material_addID(fundID,fundMaterial-1,i);
+    }
+    else
+    {
+     fMaterial=(tMaterial*)material_add(fMaterial, &fundMaterial, material[fID[i]], false);
+     fundID=(unsigned int*)material_addID(fundID,fundMaterial-1,fID[i]);
+    }
    }
-   return material_searchMaterial(fMaterial, fundMaterial, fundID);
+  }
+  
+  if(fundMaterial!=0)
+  {
+   if(fundMaterial!=1)
+   {
+    for(i=0;i<fundMaterial;i++)
+    {
+     material_outputSearch(fMaterial[i],fundID[i]);
+    }
+    return material_searchMaterial(fMaterial, fundMaterial, fundID);
+   }
+   else
+   {
+    fundMaterial=(fundID)[0];
+    free(fMaterial);
+    free(fundID);
+    return fundMaterial;
+   }
   }
   else
   {
-   fundMaterial=(fundID)[0];
-   free(fMaterial);
-   free(fundID);
-   return fundMaterial;
+   printf("Não existem procuras com a descrição inserida");
+   return -1;
   }
  }
  else
  {
-  printf("Não existem procuras com a descrição inserida");
-  return -1;
+  return fundMaterial;
  }
 }
 
@@ -345,7 +362,7 @@ tMaterial *material_menu(tMaterial* material, unsigned int* nMaterial)
           index=material_searchMaterial(material, *nMaterial,NULL);
           if(index!=-1)
           {
-           material_outputSearch(material[index],0);
+           material_outputSearch(material[index],index);
           }
     break;
    case 3:system(CLEAR_CMD); 

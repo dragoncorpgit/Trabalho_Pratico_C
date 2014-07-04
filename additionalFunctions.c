@@ -1,5 +1,5 @@
 #include "additionalFunctions.h"
-
+ 
 int string_lentgh(char* str)
 {
  int i=0;
