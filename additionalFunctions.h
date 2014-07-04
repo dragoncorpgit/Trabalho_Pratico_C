@@ -2,6 +2,7 @@
 #define	ADDITIONALFUNCTIONS_H
  #include <stdio.h>
  #include <stdlib.h>
+ #include <string.h>
 
  #ifdef __unix__
   #define CLEAR_CMD "clear"
