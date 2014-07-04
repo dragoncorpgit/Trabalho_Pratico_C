@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c</itemPath>
+      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h</itemPath>
       <itemPath>date.h</itemPath>
       <itemPath>garage.h</itemPath>
       <itemPath>material.h</itemPath>
@@ -59,6 +61,16 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
@@ -111,6 +123,16 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
