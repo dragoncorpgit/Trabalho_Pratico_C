@@ -2,19 +2,13 @@
 
 char* material_inputDenomination()
 {
- char input[500];
  char *denomination=NULL;
  do
  {
-  ClearBuffer();
   printf("Descrição: ");
-  fgets(input,500,stdin);
- }while(input==NULL);
- while(denomination==NULL)
- {
-  denomination=(char*)calloc(strlen(input),sizeof(char));
- }
- strcpy(denomination,input);
+  scanf("%ms", &denomination);
+  ClearBuffer();
+ }while(denomination==NULL);
  denomination=string_removeNewLineFromPointer(denomination);
  return (char*)denomination;
 }
@@ -81,7 +75,7 @@ tMaterial material_fillMaterial()
  tMaterial newMaterial;
  newMaterial.denomination=NULL;
  newMaterial.denomination=material_inputDenomination();
- strcpy(newMaterial.nSerie,material_inputNSerie());
+ material_inputNSerie(newMaterial.nSerie);
  newMaterial.price=material_inputPrice();
  newMaterial.acquisitionDate=material_inputAcquisitionDate();
  return newMaterial;
@@ -213,13 +207,14 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
  int i=-1;
  tMaterial *fMaterial=NULL;
  unsigned int fundMaterial=0;
+ unsigned int* fundID=NULL;
  char* str=NULL;
- char denToFind[500];
+ char* denToFind=NULL;
  bool byDenomination=true;
  
  if(fID!=NULL)
  {
-  printf("\nID: -1(para re-procurar por descricao): ");
+  printf("\n\nID: -1 (para re-procurar por descricao): ");
   scanf("%i",&i);
   ClearBuffer();
   if(i!=-1)
@@ -227,12 +222,24 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
    byDenomination=false;
    fundMaterial=i;
   }
+  else
+  {
+   do
+   {
+    printf("\nDescrição a procurar: ");
+    scanf("%ms",&denToFind);
+   }while(denToFind==NULL);
+   denToFind=string_removeNewLineFromPointer(denToFind);
+  }
  }
  else
  {
-  printf("\nDescrição a procurar: ");
-  fgets(denToFind,500,stdin);
-  string_removeNewLineFromArray(denToFind);
+  do
+  {
+   printf("\nDescrição a procurar: ");
+   scanf("%ms",&denToFind);
+  }while(denToFind==NULL);
+  denToFind=string_removeNewLineFromPointer(denToFind);
  }
  
  for(i=0;i<numMaterial;i++)
@@ -241,7 +248,7 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
   if(str!=NULL)
   {
    fMaterial=(tMaterial*)material_add(fMaterial, &fundMaterial, (material)[i], false);
-   fID=(unsigned int*)material_addID(fID,fundMaterial-1,i);
+   fundID=(unsigned int*)material_addID(fundID,fundMaterial-1,i);
   }
  }
   
@@ -251,15 +258,15 @@ int material_searchMaterial(tMaterial *material, unsigned int numMaterial,unsign
   {
    for(i=0;i<fundMaterial;i++)
    {
-    material_outputSearch(material[i],fID[i]);
+    material_outputSearch(material[i],fundID[i]);
    }
-   return material_searchMaterial(fMaterial, fundMaterial, fID);
+   return material_searchMaterial(fMaterial, fundMaterial, fundID);
   }
   else
   {
-   fundMaterial=(fID)[0];
+   fundMaterial=(fundID)[0];
    free(fMaterial);
-   free(fID);
+   free(fundID);
    return fundMaterial;
   }
  }
