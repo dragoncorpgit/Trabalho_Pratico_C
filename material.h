@@ -27,12 +27,19 @@
  tMaterial *material_add(tMaterial*, unsigned int*,tMaterial, bool);
  tMaterial *material_replace(tMaterial*, unsigned int);
  tMaterial *material_remove(tMaterial*, unsigned int*);
- unsigned int *material_addID(unsigned int*, unsigned int,unsigned int);
- char* material_inputDenomination();
- Date material_inputAcquisitionDate();
- float material_inputPrice();
+ 
  tMaterial material_fillMaterial();
+ 
+ unsigned int *material_addID(unsigned int*, unsigned int,unsigned int);
+ 
+ char* material_inputDenomination();
+ 
+ Date material_inputAcquisitionDate();
+ 
+ float material_inputPrice();
+ 
  int material_searchMaterial(tMaterial*, unsigned int,unsigned int*);
+ 
  void material_outputSearch(tMaterial, unsigned int);
  void material_listAll(tMaterial*, unsigned int);
  void material_sort(tMaterial*, unsigned int);
