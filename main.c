@@ -22,25 +22,27 @@ int main(void)
   printf("\n(O)ficinas");
   printf("\n\n(S)air\n");
   scanf("%c", &choice);
+  choice = tolower(choice);
   switch(choice)
   {
-   case 'F':
+   
    case 'f':
+       
     break; 
-   case 'M':
+    
    case 'm'://Escolher oficina
     material_menu(material,&m);
     break;
-   case 'O':
+   
    case 'o':
     break;
-   default: if(choice!='S'||choice!='s')
+   default: if(choice!='s')
             {
              printf("Opção '%c' inválida", choice);
             }
     break;
   }
- }while(choice!='S'||choice!='s');
+ }while(choice!='s');
  //freeMemory(garage, numGarage);
 }
 
