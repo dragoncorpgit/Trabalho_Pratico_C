@@ -14,7 +14,6 @@
     short unsigned int nrOfGarage;
     time startWork;
     time finishWork;
-
  } tSchedule;
 
  typedef struct {
@@ -28,7 +27,6 @@
     //time stopWorkHour;
  } tMechanic;
 
-
  tMechanic* InsertMechanic(tMechanic*,unsigned int*, tGarage*,short unsigned int);
  tMechanic* EditMechanic(tMechanic*,int,tGarage*,short unsigned int);
  tMechanic* GetMechanicShift(tMechanic*,unsigned int,unsigned int,tGarage*,short unsigned int);
@@ -41,7 +39,7 @@
 
  unsigned int* mechanic_addID(unsigned int*, unsigned int,unsigned int);
 
- short unsigned int* CheckGarageAvaiableForMechanic (short unsigned int,tGarage*,short unsigned int,short unsigned int*);
+ short unsigned int* CheckGarageAvaiableForMechanic(short unsigned int,tGarage*,short unsigned int,short unsigned int*);
 
  bool IsNrHiggerThanZeroOrEqual(short unsigned int);
  bool IsShiftTimeValid(char shiftTime[], short unsigned int*, short unsigned int*);
@@ -58,7 +56,7 @@
  
  void ShowAllMechanic(tMechanic*,int);
  void ShowMechanic(tMechanic*, unsigned int);
- void material_sort(tMechanic*, unsigned int);
+ void mechanic_sort(tMechanic*, unsigned int);
  void mechanic_outputSearch(tMechanic, unsigned int);
  void mechanic_sort(tMechanic*, unsigned int);
  void ListMechanicEditFields();

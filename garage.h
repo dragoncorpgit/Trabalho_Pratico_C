@@ -6,25 +6,25 @@
 
 #define MAX_GARAGE 10
 
-typedef enum hangar {
+ typedef struct {
+    short unsigned int number;
+    short unsigned int floor;
+    float area;
+    bool enable;
+    enumHangar hangarLocation;
+    enumSpeciality speciality;
+    tMaterial *material;
+    tMechanic *mechanic;
+    unsigned int numMaterial;
+    unsigned int nrOfMechanics;
+ }tGarage;
+
+ typedef enum hangar {
     NORTH = 0,
     SOUTH = 1,
     EAST = 2,
     WEST = 3
-} enumHangar;
-
-typedef struct {
-    short unsigned int number;
-    float area;
-    short unsigned int floor;
-    enumHangar hangarLocation;
-    bool enable;
-    enumSpeciality speciality;
-    tMaterial *material;
-    unsigned int numMaterial;
-    tMechanic *mechanic;
-    unsigned int nrOfMechanics;
-} tGarage;
+ } enumHangar;
 
 void AddGarage(tGarage*, short unsigned int*);
 void SeachGarage(tGarage*, short unsigned int);
