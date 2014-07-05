@@ -9,8 +9,6 @@
 #define	MATERIAL_H
  #include "date.h"
  #include "additionalFunctions.h"
- #include <string.h>
- #include <stdlib.h>
 
  typedef struct
  {

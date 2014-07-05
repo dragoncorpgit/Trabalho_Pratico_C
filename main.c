@@ -18,7 +18,7 @@ int main(void)
   printf("\n(O)ficinas");
   printf("\n\n(S)air\n");
   scanf("%c", &choice);
-  choice = tolower(choice);
+  choice = (choice);
   switch(choice)
   {
    
@@ -53,7 +53,7 @@ void freeMemory(tGarage* garage, unsigned int* numGarage)
  //end
 }
 
-void freeMaterialMemory(tMaterial* material, unsigned int* nMaterial)
+c
 {
  for((*nMaterial)-=1;(*nMaterial)>-1;(*nMaterial)--)
  {
