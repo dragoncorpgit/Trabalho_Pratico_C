@@ -25,9 +25,9 @@ typedef struct {
     bool enable;
     enumSpeciality speciality;
     tMaterial *material;
-    unsigned short int nrOfMaterials;
+    unsigned int nrOfMaterials;
     tMechanic *mechanic;
-    unsigned short int nrOfMechanics;
+    unsigned int nrOfMechanics;
 } tGarage;
 
 void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
