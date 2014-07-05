@@ -6,13 +6,13 @@
  */
 
 #ifndef TIME_H
-#define	TIME_H
-typedef struct {
-    short unsigned  int second;
-  short unsigned  int minute;
-  short unsigned  int hour;
-} time;
+ #define	TIME_H
 
+ typedef struct {
+   short unsigned  int second;
+   short unsigned  int minute;
+   short unsigned  int hour;
+ } time;
 
 #endif	/* TIME_H */
 
