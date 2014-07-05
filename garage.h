@@ -1,12 +1,14 @@
 #ifndef GARAGE_H
 #define	GARAGE_H
- #include "material.h"
- #include "speciality.h"
- #include <stdio.h>
- #include <stdlib.h>
- #include <stdbool.h>
- #define MAX 10
 
+typedef enum {
+    CARS = 0,
+    SIMPLE_MOTORCYLES = 1,
+    HIGH_CYLINDER_MOTORCYLES = 2,
+    TRUCKS = 3,
+    BOATS_MOTOR = 4,
+    BOATS_BI_MOTOR = 5
+} enumSpeciality;
 
 typedef enum hangar {
     NORTH = 0,
@@ -22,8 +24,6 @@ typedef struct {
     enumHangar hangarLocation;
     bool enable;
     enumSpeciality speciality;
-    tMaterial* material;
-    unsigned int numMaterial;
 } tGarage;
 
 void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
@@ -58,5 +58,9 @@ bool IsAreaValid(float *inputArea);
 bool IsInputSearchFieldValid (unsigned short int inputSearchField , 
         unsigned short int min, unsigned short int max);
 
+float GetGarageArea();
+unsigned short int GetGarageFloor();
+unsigned short int GetGarageHangar();
+unsigned short int GetGarageSpeciality();
+char *RemoveBarN (char *input, int len);
 #endif	/* GARAGE_H */
-
