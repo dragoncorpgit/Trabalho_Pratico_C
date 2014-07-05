@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/471842843/additionalFunctions.o \
+	${OBJECTDIR}/additionalFunctions.o \
 	${OBJECTDIR}/date.o \
 	${OBJECTDIR}/garage.o \
 	${OBJECTDIR}/main.o \
@@ -68,10 +68,10 @@ ${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/471842843/additionalFunctions.o: /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/471842843
+${OBJECTDIR}/additionalFunctions.o: additionalFunctions.c 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/471842843/additionalFunctions.o /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c
+	$(COMPILE.c) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/additionalFunctions.o additionalFunctions.c
 
 ${OBJECTDIR}/date.o: date.c 
 	${MKDIR} -p ${OBJECTDIR}

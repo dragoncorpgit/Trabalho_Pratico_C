@@ -34,6 +34,7 @@ bool isCorrectDate(Date date)
  }
  else
  {
+     printf("\nData invalida");
   return false;
  }
 }

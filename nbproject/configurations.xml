@@ -4,10 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h</itemPath>
+      <itemPath>additionalFunctions.h</itemPath>
       <itemPath>date.h</itemPath>
       <itemPath>garage.h</itemPath>
       <itemPath>material.h</itemPath>
+      <itemPath>mechanic.h</itemPath>
       <itemPath>speciality.h</itemPath>
       <itemPath>time.h</itemPath>
     </logicalFolder>
@@ -18,7 +19,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c</itemPath>
+      <itemPath>additionalFunctions.c</itemPath>
       <itemPath>date.c</itemPath>
       <itemPath>garage.c</itemPath>
       <itemPath>main.c</itemPath>
@@ -61,15 +62,9 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
+      <item path="additionalFunctions.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="additionalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -86,6 +81,8 @@
       <item path="material.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="mechanic.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="mechanic.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="speciality.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -123,15 +120,9 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
+      <item path="additionalFunctions.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/additionalFunctions.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="additionalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="date.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -148,6 +139,8 @@
       <item path="material.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="mechanic.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="mechanic.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="speciality.c" ex="false" tool="0" flavor2="0">
       </item>
