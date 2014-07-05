@@ -1,5 +1,8 @@
 #include "toFile.h"
 #include "fromFile.h"
+void freeMemory(tGarage*,unsigned int*);
+void freeMechanicMemory(tMechanic*, unsigned int*);
+void freeMaterialMemory(tMaterial*, unsigned int*);
 
 int main(void) 
 {
@@ -53,7 +56,7 @@ void freeMemory(tGarage* garage, unsigned int* numGarage)
  //end
 }
 
-c
+void freeMaterialMemory(tMaterial* material, unsigned int* nMaterial)
 {
  for((*nMaterial)-=1;(*nMaterial)>-1;(*nMaterial)--)
  {
