@@ -2,6 +2,7 @@
 #define	GARAGE_H
  #include "material.h"
  #include "speciality.h"
+ #include "mechanic.h"
 
 #define MAX_GARAGE 10
 
