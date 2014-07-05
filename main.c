@@ -1,5 +1,6 @@
 #include "toFile.h"
 #include "fromFile.h"
+#include "mechanic.h"
 
 int main(void) 
 {
@@ -10,11 +11,6 @@ int main(void)
  garage=NULL;
  numGarage=0;
  choice=' ';
- 
- tMaterial* material;
- unsigned int m;
- material=NULL;
- m=0;
  
  do
  {
@@ -32,7 +28,6 @@ int main(void)
     break; 
     
    case 'm'://Escolher oficina
-    material_menu(material,&m);
     break;
    
    case 'o':
@@ -52,11 +47,10 @@ void freeMemory(tGarage* garage, unsigned int* numGarage)
  //Free all garage pointers
  for((*numGarage)-=1;(*numGarage)>-1;(*numGarage)--)
  {
-  freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].nrOfMaterials);
+  freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].numMaterial);
+  freeMechanicMemory(garage[(*numGarage)].mechanic,&garage[(*numGarage)].nrOfMechanics);
  }
- //end
- //Free all mechanics pointers
- 
+ free(garage);
  //end
 }
 
@@ -67,4 +61,14 @@ void freeMaterialMemory(tMaterial* material, unsigned int* nMaterial)
   free(material[(*nMaterial)].denomination);
  }
  free(material);
+}
+
+void freeMechanicMemory(tMechanic* mechanic, unsigned int* nMechanic)
+{
+ for((*nMechanic)-=1;(*nMechanic)>-1;(*nMechanic)--)
+ {
+  free(mechanic[(*nMechanic)].name);
+  free(mechanic[(*nMechanic)].shift);
+ }
+ free(mechanic);
 }
