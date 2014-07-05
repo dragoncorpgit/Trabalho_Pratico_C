@@ -8,9 +8,9 @@
 #ifndef TIME_H
 #define	TIME_H
 typedef struct {
-    unsigned short int second;
-  unsigned short int minute;
-  unsigned short int hour;
+    short unsigned  int second;
+  short unsigned  int minute;
+  short unsigned  int hour;
 } time;
 
 

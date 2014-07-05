@@ -1,42 +1,10 @@
 #include "garage.h"
-#define MAX 10
 
-/*int main(void) {
-    unsigned short int currentNrOfGarages = 0;
-    tGarage garage[10];
-    //AddGarage(garage, &currentNrOfGarages);
-    //printf ("%hu", currentNrOfGarages);
-    garage[0].area = 1;
-    garage[0].enable = true;
-    garage[0].floor = 1;
-    garage[0].hangarLocation = 0;
-    garage[0].number = 1;
-    garage[0].speciality = 1;
-
-
-    garage[1].area = 1;
-    garage[1].enable = true;
-    garage[1].floor = 1;
-    garage[1].hangarLocation = 0;
-    garage[1].number = 2;
-    garage[1].speciality = 1;
-
-    currentNrOfGarages += 2;
-    ListGarage(garage, currentNrOfGarages);
-    AddGarage(garage, &currentNrOfGarages);
-    //DeleteGarage(garage, &currentNrOfGarages);
-    //SeachGarage(garage, currentNrOfGarages);
-    //ListGarage(garage, currentNrOfGarages);
-    EditGarage(garage, currentNrOfGarages);
-    ListGarage(garage, currentNrOfGarages);
-    return (EXIT_SUCCESS);
-}
- */
-void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages) {
+void AddGarage(tGarage *garage, short unsigned  int *currentNrOfGarages) {
 
 
 
-    if (*currentNrOfGarages < MAX) {
+    if (*currentNrOfGarages < MAX_GARAGE ) {
         garage = (tGarage*) realloc (garage, sizeof(tGarage) * (*currentNrOfGarages));
         garage[*currentNrOfGarages].number = (*currentNrOfGarages) + 1;
         garage[*currentNrOfGarages].area = GetGarageArea();
@@ -61,8 +29,8 @@ float GetGarageArea() {
     return inputArea;
 }
 
-unsigned short int GetGarageFloor() {
-    unsigned short int inputFloor;
+short unsigned  int GetGarageFloor() {
+    short unsigned  int inputFloor;
     do {
         printf("\nInsira o andar a que pertece a oficina (0-2): ");
         scanf("%hu", &inputFloor);
@@ -73,8 +41,8 @@ unsigned short int GetGarageFloor() {
     return inputFloor;
 }
 
-unsigned short int GetGarageHangar() {
-    unsigned short int inputHangar;
+short unsigned  int GetGarageHangar() {
+    short unsigned  int inputHangar;
     do {
         ShowListHangar();
         printf("\nInsira o hangar a que pertece a oficina: ");
@@ -85,8 +53,8 @@ unsigned short int GetGarageHangar() {
     return inputHangar;
 }
 
-unsigned short int GetGarageSpeciality() {
-    unsigned short int inputSpeciality;
+short unsigned  int GetGarageSpeciality() {
+    short unsigned  int inputSpeciality;
     do {
         ShowSpecialityList();
         printf("\nInsira a especialidade da oficina:");
@@ -97,7 +65,7 @@ unsigned short int GetGarageSpeciality() {
     return inputSpeciality;
 }
 
-void ListGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
+void ListGarage(tGarage *garage, short unsigned  int currentNrOfGarages) {
     int i;
 
     for (i = 0; i < currentNrOfGarages; i++) {
@@ -106,7 +74,7 @@ void ListGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
     }
 }
 
-void ShowGarage(tGarage *garage, unsigned short int garageToShow) {
+void ShowGarage(tGarage *garage, short unsigned  int garageToShow) {
     printf("\nGaragens:");
 
     if (garage[garageToShow].number != -1) {
@@ -133,8 +101,8 @@ void ShowGarage(tGarage *garage, unsigned short int garageToShow) {
     }
 }
 
-void DeleteGarage(tGarage *garage, unsigned short int *currentNrOfGarages) {
-    unsigned short int garageToDelete, i;
+void DeleteGarage(tGarage *garage, short unsigned  int *currentNrOfGarages) {
+    short unsigned  int garageToDelete, i;
 
     printf("\nInsira o número da garagem que pretende apagar: ");
     do {
@@ -153,11 +121,11 @@ void DeleteGarage(tGarage *garage, unsigned short int *currentNrOfGarages) {
     (*currentNrOfGarages)--;
 }
 
-void EditGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
+void EditGarage(tGarage *garage, short unsigned  int currentNrOfGarages) {
     short int garageFound;
-    unsigned short int inputFieldToEdit;
+    short unsigned  int inputFieldToEdit;
     float inputArea;
-    unsigned short int inputNr;
+    short unsigned  int inputNr;
 
     printf("\nInsira a oficina que pretende editar: ");
     garageFound = ChooseGarage(garage, currentNrOfGarages);
@@ -203,7 +171,7 @@ void EditGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
     }
 }
 
-void SeachGarage(tGarage *garage, unsigned short int currentNrOfGarage) {
+void SeachGarage(tGarage *garage, short unsigned  int currentNrOfGarage) {
     short int garageFound;
     garageFound = ChooseGarage(garage, currentNrOfGarage);
 
@@ -215,8 +183,8 @@ void SeachGarage(tGarage *garage, unsigned short int currentNrOfGarage) {
 
 }
 
-bool IsInputSearchFieldValid(unsigned short int inputSearchField,
-        unsigned short int min, unsigned short int max) {
+bool IsInputSearchFieldValid(short unsigned  int inputSearchField,
+        short unsigned  int min, short unsigned  int max) {
     if (inputSearchField < min || inputSearchField > max) {
         printf("\nValor Inserido Invalido");
         return false;
@@ -225,8 +193,8 @@ bool IsInputSearchFieldValid(unsigned short int inputSearchField,
     }
 }
 
-short int ChooseGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int inputSearchField;
+short int ChooseGarage(tGarage *garage, short unsigned  int currentNrOfGarages) {
+    short unsigned  int inputSearchField;
 
     do {
         ShowAllGarageFields();
@@ -237,7 +205,7 @@ short int ChooseGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
 
     switch (inputSearchField) {
         case 0:
-            return SearchForNumber(garage, currentNrOfGarages);
+            return SearchForNumber(garage, currentNrOfGarages,-1);
             break;
         case 1:
             return SearchForArea(garage, currentNrOfGarages);
@@ -258,12 +226,14 @@ short int ChooseGarage(tGarage *garage, unsigned short int currentNrOfGarages) {
 
 }
 
-short int SearchForNumber(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int inputNr;
-
-    printf("\nInsira o numero da oficina:");
-    scanf("%hu", &inputNr);
-    ClearBuffer();
+short int SearchForNumber(tGarage *garage, short unsigned  int currentNrOfGarages, short int inputNr) {
+ if(inputNr==-1)
+ {
+  printf("\nInsira o numero da oficina:");
+  scanf("%hu", &inputNr);
+  ClearBuffer();
+ }
+    
     if (inputNr <= currentNrOfGarages) {
         return inputNr - 1;
     } else {
@@ -271,9 +241,9 @@ short int SearchForNumber(tGarage *garage, unsigned short int currentNrOfGarages
     }
 }
 
-short int SearchForArea(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int i = 0, nrOfOccurrences = 0;
-    unsigned short int *nrOfGarageFound = NULL;
+short int SearchForArea(tGarage *garage, short unsigned  int currentNrOfGarages) {
+    short unsigned  int i = 0, nrOfOccurrences = 0;
+    short unsigned  int *nrOfGarageFound = NULL;
     float inputArea;
 
     do {
@@ -292,10 +262,10 @@ short int SearchForArea(tGarage *garage, unsigned short int currentNrOfGarages) 
 
 }
 
-short int SearchForSpeciality(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int inputSpeciality;
-    unsigned short int i = 0, nrOfOccurrences = 0, inputNr = 0;
-    unsigned short int *nrOfGarageFound = NULL;
+short int SearchForSpeciality(tGarage *garage, short unsigned  int currentNrOfGarages) {
+    short unsigned  int inputSpeciality;
+    short unsigned  int i = 0, nrOfOccurrences = 0, inputNr = 0;
+    short unsigned  int *nrOfGarageFound = NULL;
 
     printf("\nInsira a specialidade da oficina:");
     ShowSpecialityList();
@@ -311,19 +281,19 @@ short int SearchForSpeciality(tGarage *garage, unsigned short int currentNrOfGar
     return CheckMultiplyOccurences(garage, nrOfOccurrences, nrOfGarageFound);
 }
 
-unsigned short int *FoundOccurrence(unsigned short int *nrOfOccurrences, unsigned short int *nrOfGarageFound,
-        unsigned short int i) {
+short unsigned  int *FoundOccurrence(short unsigned  int *nrOfOccurrences, short unsigned  int *nrOfGarageFound,
+        short unsigned  int i) {
     int temp = *nrOfOccurrences;
     (*nrOfOccurrences)++;
-    nrOfGarageFound = (unsigned short int *) realloc(nrOfGarageFound,
-            *nrOfOccurrences * sizeof (unsigned short int));
+    nrOfGarageFound = (short unsigned  int *) realloc(nrOfGarageFound,
+            *nrOfOccurrences * sizeof (short unsigned  int));
     nrOfGarageFound[temp] = i;
 
     return nrOfGarageFound;
 }
 
-short int CheckMultiplyOccurences(tGarage *garage, unsigned short int nrOfOccurrences,
-        unsigned short int *nrOfGarageFound) {
+short int CheckMultiplyOccurences(tGarage *garage, short unsigned  int nrOfOccurrences,
+        short unsigned  int *nrOfGarageFound) {
 
     if (nrOfOccurrences > 1) {
         return (int) multiplyOcurrencesFound(garage, nrOfOccurrences, nrOfGarageFound);
@@ -335,10 +305,10 @@ short int CheckMultiplyOccurences(tGarage *garage, unsigned short int nrOfOccurr
     }
 }
 
-short int SearchForFloor(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int inputFloor;
-    unsigned short int i = 0, nrOfOccurrences = 0;
-    unsigned short int *nrOfGarageFound = NULL;
+short int SearchForFloor(tGarage *garage, short unsigned  int currentNrOfGarages) {
+    short unsigned  int inputFloor;
+    short unsigned  int i = 0, nrOfOccurrences = 0;
+    short unsigned  int *nrOfGarageFound = NULL;
 
     do {
         printf("\nInsira o andar da oficina (0-2):");
@@ -355,10 +325,10 @@ short int SearchForFloor(tGarage *garage, unsigned short int currentNrOfGarages)
     return CheckMultiplyOccurences(garage, nrOfOccurrences, nrOfGarageFound);
 }
 
-short int SearchForHanger(tGarage *garage, unsigned short int currentNrOfGarages) {
-    unsigned short int inputHangar;
-    unsigned short int i = 0, nrOfOccurrences = 0, inputNr = 0;
-    unsigned short int *nrOfGarageFound = NULL;
+short int SearchForHanger(tGarage *garage, short unsigned  int currentNrOfGarages) {
+    short unsigned  int inputHangar;
+    short unsigned  int i = 0, nrOfOccurrences = 0, inputNr = 0;
+    short unsigned  int *nrOfGarageFound = NULL;
 
     do {
         printf("\nInsira o hangar da oficina:");
@@ -375,10 +345,10 @@ short int SearchForHanger(tGarage *garage, unsigned short int currentNrOfGarages
     return CheckMultiplyOccurences(garage, nrOfOccurrences, nrOfGarageFound);
 }
 
-unsigned short int multiplyOcurrencesFound(tGarage *garage, unsigned short int nrOfOccurrences,
-        unsigned short int *nrOfGarageFound) {
-    unsigned short int i;
-    unsigned short int inputNr = 0;
+short unsigned  int multiplyOcurrencesFound(tGarage *garage, short unsigned  int nrOfOccurrences,
+        short unsigned  int *nrOfGarageFound) {
+    short unsigned  int i;
+    short unsigned  int inputNr = 0;
     bool isNumberValid = false;
     printf("\nForam encontrados diversos resultados");
     do {
@@ -400,7 +370,7 @@ unsigned short int multiplyOcurrencesFound(tGarage *garage, unsigned short int n
     return inputNr;
 }
 
-bool IsValidGarageNr(unsigned short int inputGarageNr, unsigned short int currentNrOfGarages) {
+bool IsValidGarageNr(short unsigned  int inputGarageNr, short unsigned  int currentNrOfGarages) {
 
     if (inputGarageNr <= 0 || inputGarageNr > currentNrOfGarages) {
         printf("Numero de oficina inválido, insira corretamente");
@@ -410,7 +380,7 @@ bool IsValidGarageNr(unsigned short int inputGarageNr, unsigned short int curren
     }
 }
 
-bool IsValidHangar(unsigned short int inputHangar) {
+bool IsValidHangar(short unsigned  int inputHangar) {
 
     if (inputHangar < 0 || inputHangar > 3) {
         printf("Hangar inválido, insira corretamente");
@@ -431,7 +401,7 @@ bool IsAreaValid(float *inputArea) {
     }
 }
 
-bool IsValidFloor(unsigned short int inputFloor) {
+bool IsValidFloor(short unsigned  int inputFloor) {
 
     if (inputFloor < 0 || inputFloor > 2) {
         printf("\nPiso inválido, insira corretamente");
@@ -448,7 +418,7 @@ void ShowListHangar() {
     printf("\n3 - Oeste\n");
 }
 
-bool IsSpecialityValid(unsigned short int inputSpeciality) {
+bool IsSpecialityValid(short unsigned  int inputSpeciality) {
     if (inputSpeciality < 0 || inputSpeciality > 5) {
         printf("\nEspecialidade inválido, insira corretamente");
         return false;
@@ -466,7 +436,7 @@ void ShowSpecialityList() {
     printf("\n5 - Bi-motor");
 }
 
-void ConvertSpecialityNrToText(unsigned short int specialityNr ) {
+void ConvertSpecialityNrToText(short unsigned  int specialityNr ) {
     
     switch (specialityNr){
         case 0 :  printf("Automoveis");
@@ -491,13 +461,4 @@ void ShowAllGarageFields() {
     printf("\n2 - Especialidade");
     printf("\n3 - Piso");
     printf("\n4 - Hangar");
-}
-
-
-char *RemoveBarN (char *input, int len) {
-    if (len ==0){
-    len = strlen(input);
-    }
-    if (input[len - 1] == '\n')
-        input[len - 1] = 0;
 }

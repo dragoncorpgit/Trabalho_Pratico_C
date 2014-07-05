@@ -30,9 +30,9 @@ void material_inputNSerie(char nSerie[])
 Date material_inputAcquisitionDate()
 {
  Date newDate;
- unsigned short int day;
- unsigned short int month;
- unsigned short int year;
+ short unsigned  int day;
+ short unsigned  int month;
+ short unsigned  int year;
  do
  {
   printf("\nIntruduza a data da aquisição do produto!\n");
@@ -340,7 +340,7 @@ void material_listAll(tMaterial* material, unsigned int nMaterial)
 
 tMaterial *material_menu(tMaterial* material, unsigned int* nMaterial)
 {
- unsigned short int choice=0;
+ short unsigned  int choice=0;
  int index=-1;
  do
  {

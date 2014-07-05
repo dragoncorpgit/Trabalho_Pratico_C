@@ -1,5 +1,9 @@
 #ifndef GARAGE_H
 #define	GARAGE_H
+ #include "material.h"
+ #include "speciality.h"
+
+#define MAX_GARAGE 10
 
 typedef enum {
     CARS = 0,
@@ -18,9 +22,9 @@ typedef enum hangar {
 } enumHangar;
 
 typedef struct {
-    unsigned short int number;
+    short unsigned  int number;
     float area;
-    unsigned short int floor;
+    short unsigned  int floor;
     enumHangar hangarLocation;
     bool enable;
     enumSpeciality speciality;
@@ -30,41 +34,37 @@ typedef struct {
     unsigned int nrOfMechanics;
 } tGarage;
 
-void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
-void SeachGarage(tGarage *garage, unsigned short int currentNrOfGarage);
-void ListGarage(tGarage *garage, unsigned short int currentNrOfGarages);
-void DeleteGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
-void EditGarage(tGarage *garage, unsigned short int currentNrOfGarages);
-short int ChooseGarage(tGarage *garage, unsigned short int currentNrOfGarages);
-short int SearchForNumber(tGarage *garage, unsigned short int currentNrOfGarages);
-short int SearchForArea(tGarage *garage, unsigned short int currentNrOfGarages);
-unsigned short int multiplyOcurrencesFound(tGarage *garage, unsigned short int nrOfOccurrences,
-        unsigned short int *nrOfGarageFound);
-short int SearchForSpeciality(tGarage *garage, unsigned short int currentNrOfGarages);
-short int SearchForFloor(tGarage *garage, unsigned short int currentNrOfGarages);
-short int SearchForHanger(tGarage *garage, unsigned short int currentNrOfGarages);
-
-bool IsValidGarageNr(unsigned short int inputGarageNr, unsigned short int currentNrOfGarages);
-bool IsValidHangar(unsigned short int inputHangar);
-bool IsValidFloor(unsigned short int inputFloor);
-void ShowListHangar();
-bool IsSpecialityValid(unsigned short int inputSpeciality);
+void AddGarage(tGarage*, short unsigned  int*);
+void SeachGarage(tGarage*, short unsigned  int);
+void ListGarage(tGarage*, short unsigned  int);
+void DeleteGarage(tGarage*, short unsigned  int*);
+void EditGarage(tGarage*, short unsigned  int);
 void ShowListHangar();
 void ShowSpecialityList();
-void ShowGarage(tGarage *garage, unsigned short int garageToShow);
-short int CheckMultiplyOccurences(tGarage *garage, unsigned short int nrOfOccurrences,
-        unsigned short int *nrOfGarageFound);
-unsigned short int *FoundOccurrence(unsigned short int *nrOfOccurrences, 
-        unsigned short int *nrOfGarageFound,
-        unsigned short int i);
 void ShowAllGarageFields();
-bool IsAreaValid(float *inputArea);
-bool IsInputSearchFieldValid (unsigned short int inputSearchField , 
-        unsigned short int min, unsigned short int max);
+void ShowGarage(tGarage*,short unsigned  int);
+
+short int ChooseGarage(tGarage*, short unsigned  int);
+short int SearchForNumber(tGarage*, short unsigned  int, short int);
+short int SearchForArea(tGarage*, short unsigned  int);
+short int SearchForSpeciality(tGarage*,short unsigned  int);
+short int SearchForFloor(tGarage*, short unsigned  int);
+short int SearchForHanger(tGarage*, short unsigned  int);
+
+bool IsValidGarageNr(short unsigned  int, short unsigned  int);
+bool IsValidHangar(short unsigned  int);
+bool IsValidFloor(short unsigned  int);
+bool IsSpecialityValid(short unsigned  int);
+bool IsAreaValid(float*);
+bool IsInputSearchFieldValid (short unsigned  int,short unsigned  int, short unsigned  int);
+
+short int CheckMultiplyOccurences(tGarage*, short unsigned  int,short unsigned  int*);
 
 float GetGarageArea();
-unsigned short int GetGarageFloor();
-unsigned short int GetGarageHangar();
-unsigned short int GetGarageSpeciality();
-char *RemoveBarN (char *input, int len);
+
+short unsigned  int* FoundOccurrence(short unsigned  int*,short unsigned  int*,short unsigned  int);
+short unsigned  int GetGarageFloor();
+short unsigned  int GetGarageHangar();
+short unsigned  int GetGarageSpeciality();
+short unsigned  int multiplyOcurrencesFound(tGarage*,short unsigned  int,short unsigned  int*);
 #endif	/* GARAGE_H */

@@ -10,13 +10,13 @@
 #include <stdbool.h>
  typedef struct
  {
-  unsigned short int day;
-  unsigned short int month;
-  unsigned short int year;
+  short unsigned  int day;
+  short unsigned  int month;
+  short unsigned  int year;
  }Date;
 
  bool isCorrectDate(Date);
- bool yearIsLeap(unsigned short int);
- bool inBetween(unsigned short int, unsigned short int, unsigned short int);
+ bool yearIsLeap(short unsigned  int);
+ bool inBetween(short unsigned  int, short unsigned  int, short unsigned  int);
 #endif	/* DATE_H */
 
