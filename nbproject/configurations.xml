@@ -8,6 +8,7 @@
       <itemPath>date.h</itemPath>
       <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/fromFile.h</itemPath>
       <itemPath>garage.h</itemPath>
+      <itemPath>/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/garageStruct.h</itemPath>
       <itemPath>material.h</itemPath>
       <itemPath>mechanic.h</itemPath>
       <itemPath>speciality.h</itemPath>
@@ -72,6 +73,11 @@
             flavor2="0">
       </item>
       <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/fromFile.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/garageStruct.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -150,6 +156,11 @@
             flavor2="0">
       </item>
       <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/fromFile.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/garageStruct.h"
             ex="false"
             tool="3"
             flavor2="0">

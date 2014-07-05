@@ -7,7 +7,6 @@
 
 #ifndef FROMFILE_H
 #define	FROMFILE_H
- #include "garage.h"
  
  tGarage* fromFile_importTGarage(tGarage*, unsigned int*);
  tGarage* fromFile_importTMaterial(tGarage*, unsigned int);

@@ -1,29 +1,9 @@
 #ifndef GARAGE_H
 #define	GARAGE_H
  #include "material.h"
- #include "speciality.h"
-#include "mechanic.h"
+ #include "mechanic.h"
 
 #define MAX_GARAGE 10
-  typedef enum hangar {
-    NORTH = 0,
-    SOUTH = 1,
-    EAST = 2,
-    WEST = 3
- } enumHangar;
-
- typedef struct {
-    short unsigned int number;
-    short unsigned int floor;
-    float area;
-    bool enable;
-    enumHangar hangarLocation;
-    enumSpeciality speciality;
-    tMaterial *material;
-    tMechanic *mechanic;
-    unsigned int numMaterial;
-    unsigned int nrOfMechanics;
- }tGarage;
 
 void AddGarage(tGarage*, short unsigned int*);
 void SeachGarage(tGarage*, short unsigned int);
