@@ -2,7 +2,7 @@
 #define	GARAGE_H
  #include "material.h"
  #include "speciality.h"
-#include_next "mechanic.h"
+#include "mechanic.h"
 
 #define MAX_GARAGE 10
   typedef enum hangar {

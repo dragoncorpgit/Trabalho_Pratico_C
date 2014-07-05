@@ -8,7 +8,7 @@
 #ifndef MECHANIC_H
  #define	MECHANIC_H
  #include "time.h"
- #include "garage.h"
+ #include_next "garage.h"
 
  typedef struct {
     short unsigned int nrOfGarage;
