@@ -63,11 +63,9 @@ bool inBetween(short unsigned int number, short unsigned int minValue, short uns
  }
 }
 
-Date fillDate(short unsigned int day, short unsigned int month, short unsigned int year)
+void fillDate(Date* date,short unsigned int day, short unsigned int month, short unsigned int year)
 {
- Date date;
- date.day=day;
- date.month=month;
- date.year=year;
- return date;
+ date->day=day;
+ date->month=month;
+ date->year=year;
 }

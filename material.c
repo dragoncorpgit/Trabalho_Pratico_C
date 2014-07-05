@@ -380,8 +380,3 @@ tMaterial *material_menu(tMaterial* material, unsigned int* nMaterial)
  }while(choice!=0);
  return (tMaterial*)material;
 }
-
-tMaterial *material_freeMemory(tMaterial* material, unsigned int* nMaterial)
-{
- 
-}

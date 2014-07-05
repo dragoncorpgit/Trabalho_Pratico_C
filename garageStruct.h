@@ -8,6 +8,7 @@
 #ifndef GARAGESTRUCT_H
  #define	GARAGESTRUCT_H
  #include "speciality.h"
+ #include "mechanicStruct.h"
    typedef enum hangar {
     NORTH = 0,
     SOUTH = 1,

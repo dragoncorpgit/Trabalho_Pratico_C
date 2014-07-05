@@ -7,7 +7,8 @@
 
 #ifndef DATE_H
 #define	DATE_H
-#include <stdbool.h>
+ #include <stdbool.h>
+ #include <stdio.h>
  typedef struct
  {
   short unsigned int day;
@@ -18,5 +19,6 @@
  bool isCorrectDate(Date);
  bool yearIsLeap(short unsigned int);
  bool inBetween(short unsigned int, short unsigned int, short unsigned int);
+ void fillDate(Date*, short unsigned int, short unsigned int);
 #endif	/* DATE_H */
 

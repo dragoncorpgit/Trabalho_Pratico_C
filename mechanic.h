@@ -7,25 +7,7 @@
 
 #ifndef MECHANIC_H
  #define	MECHANIC_H
- #include "time.h"
  #include "garageStruct.h"
-
- typedef struct {
-    short unsigned int nrOfGarage;
-    time startWork;
-    time finishWork;
- } tSchedule;
-
- typedef struct {
-    char *name;
-    unsigned int nr;
-    enumSpeciality speciality;
-    Date dateOfBirth;
-    tSchedule *shift;
-    short unsigned int nrOfShifts;
-    //time startWorkHour;
-    //time stopWorkHour;
- } tMechanic;
 
  tMechanic* InsertMechanic(tMechanic*,unsigned int*, tGarage*,short unsigned int);
  tMechanic* EditMechanic(tMechanic*,int,tGarage*,short unsigned int);

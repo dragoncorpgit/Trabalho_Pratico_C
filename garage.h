@@ -1,6 +1,5 @@
 #ifndef GARAGE_H
 #define	GARAGE_H
- #include "material.h"
  #include "mechanic.h"
 
 #define MAX_GARAGE 10
