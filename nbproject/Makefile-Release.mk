@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/471842843/fromFile.o \
+	${OBJECTDIR}/_ext/471842843/toFile.o \
 	${OBJECTDIR}/additionalFunctions.o \
 	${OBJECTDIR}/date.o \
 	${OBJECTDIR}/garage.o \
@@ -67,6 +69,16 @@ LDLIBSOPTIONS=
 ${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/471842843/fromFile.o: /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/fromFile.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/471842843
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/471842843/fromFile.o /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/fromFile.c
+
+${OBJECTDIR}/_ext/471842843/toFile.o: /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/toFile.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/471842843
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/471842843/toFile.o /home/y2l1/Dropbox/NetBeansProjects/Projects_C/Trabalho_Pratico_C/toFile.c
 
 ${OBJECTDIR}/additionalFunctions.o: additionalFunctions.c 
 	${MKDIR} -p ${OBJECTDIR}
