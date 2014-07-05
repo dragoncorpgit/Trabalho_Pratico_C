@@ -1,6 +1,5 @@
 #include "toFile.h"
 #include "fromFile.h"
-#include "mechanic.h"
 
 int main(void) 
 {
