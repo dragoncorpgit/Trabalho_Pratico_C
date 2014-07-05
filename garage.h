@@ -5,6 +5,12 @@
  #include "mechanic.h"
 
 #define MAX_GARAGE 10
+  typedef enum hangar {
+    NORTH = 0,
+    SOUTH = 1,
+    EAST = 2,
+    WEST = 3
+ } enumHangar;
 
  typedef struct {
     short unsigned int number;
@@ -18,13 +24,6 @@
     unsigned int numMaterial;
     unsigned int nrOfMechanics;
  }tGarage;
-
- typedef enum hangar {
-    NORTH = 0,
-    SOUTH = 1,
-    EAST = 2,
-    WEST = 3
- } enumHangar;
 
 void AddGarage(tGarage*, short unsigned int*);
 void SeachGarage(tGarage*, short unsigned int);
