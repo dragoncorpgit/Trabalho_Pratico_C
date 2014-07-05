@@ -11,7 +11,7 @@
     BOATS_BI_MOTOR = 5
  } enumSpeciality;
 
- bool IsSpecialityValid (short unsigned  int);
+ bool IsSpecialityValid (short unsigned int);
 
 #endif	/* SPECIALITY_H */
 

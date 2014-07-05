@@ -1,11 +1,11 @@
 #include "mechanic.h"
 
 int main(void) {
-    short unsigned  int currentNrOfGarages = 0;
+    short unsigned int currentNrOfGarages = 0;
     unsigned int currentNrOfMechanics = 0;
     tMechanic *mechanic = NULL;
     tGarage *garage = NULL;
-    short unsigned  int choice = 0;
+    short unsigned int choice = 0;
     int index = -1;
 
 
@@ -67,7 +67,7 @@ int main(void) {
 }
 
 tMechanic *InsertMechanic(tMechanic *mechanic, unsigned int *currentNrOfMechanics, tGarage *garage,
-        short unsigned  int currentNrOfGarages) {
+        short unsigned int currentNrOfGarages) {
 
 
     mechanic = (tMechanic*) realloc(mechanic, sizeof (tMechanic) * (*currentNrOfMechanics + 1));
@@ -84,8 +84,8 @@ tMechanic *InsertMechanic(tMechanic *mechanic, unsigned int *currentNrOfMechanic
     return mechanic;
 }
 
-short unsigned  int GetMechanicNrOfShifts() {
-    short unsigned  int nrOfShifts;
+short unsigned int GetMechanicNrOfShifts() {
+    short unsigned int nrOfShifts;
 
     do {
         printf("\nInsira o numero de turnos: ");
@@ -115,7 +115,7 @@ char *GetMechanicName() {
 
 Date GetMechanicBirthDay() {
     Date inputBirthDate;
-    short unsigned  int inputDay, inputMonth, inputYear;
+    short unsigned int inputDay, inputMonth, inputYear;
     do {
         printf("\nInsira o dia de nascimento: ");
         scanf("%hu", &inputDay);
@@ -132,8 +132,8 @@ Date GetMechanicBirthDay() {
     return inputBirthDate;
 }
 
-short unsigned  int GetMechanicSpeciality() {
-    short unsigned  int inputSpeciality;
+short unsigned int GetMechanicSpeciality() {
+    short unsigned int inputSpeciality;
     do {
         ShowSpecialityList();
         printf("\nInsira a especialidade do mecanico: ");
@@ -145,14 +145,14 @@ short unsigned  int GetMechanicSpeciality() {
 }
 
 tMechanic *GetMechanicShift(tMechanic *mechanic, unsigned int currentNrOfMechanics, unsigned int mechanicNrToGiveShift,
-        tGarage *garage, short unsigned  int currentNrOfGarages) {
+        tGarage *garage, short unsigned int currentNrOfGarages) {
 
-    short unsigned  int inputGarageNr, i, i2;
+    short unsigned int inputGarageNr, i, i2;
     time inputStartShift, inputEndShift;
     char shiftTimeStar [6], shiftTimeEnd [6];
     bool shiftIsAvaiable, garageIsValid = false;
-    short unsigned  int nrOfGaragesAvaiable = 0;
-    short unsigned  int *avaiableGarageNrs;
+    short unsigned int nrOfGaragesAvaiable = 0;
+    short unsigned int *avaiableGarageNrs;
 
     mechanic[mechanicNrToGiveShift].shift = (tSchedule*) realloc(mechanic[mechanicNrToGiveShift].shift,
             sizeof (tSchedule) * mechanic[mechanicNrToGiveShift].nrOfShifts);
@@ -209,10 +209,10 @@ tMechanic *GetMechanicShift(tMechanic *mechanic, unsigned int currentNrOfMechani
     return mechanic;
 }
 
-bool ShiftIsAvaiable(tMechanic *mechanic, unsigned int currentNrOfMechanics, short unsigned  int garageNr,
+bool ShiftIsAvaiable(tMechanic *mechanic, unsigned int currentNrOfMechanics, short unsigned int garageNr,
         time inputStartShift, time inputEndShift) {
-    short unsigned  int i, i2;
-    short unsigned  int inputStartTimeTotal, inputEndTimeTotal, startTimeTotal, endTimeTotal;
+    short unsigned int i, i2;
+    short unsigned int inputStartTimeTotal, inputEndTimeTotal, startTimeTotal, endTimeTotal;
 
     inputStartTimeTotal = inputStartShift.hour * 60 + inputStartShift.minute;
     inputEndTimeTotal = inputEndShift.hour * 60 + inputEndShift.minute;
@@ -241,8 +241,8 @@ bool ShiftIsAvaiable(tMechanic *mechanic, unsigned int currentNrOfMechanics, sho
     return true;
 }
 
-bool IsShiftTimeValid(char shiftTime [9], short unsigned  int *hour, short unsigned  int *minute) {
-    short unsigned  int inputHour, inputMinute;
+bool IsShiftTimeValid(char shiftTime [9], short unsigned int *hour, short unsigned int *minute) {
+    short unsigned int inputHour, inputMinute;
 
     if (shiftTime[2] == ':') {
         inputHour = ConcateShiftTime(shiftTime[0], shiftTime[1]);
@@ -280,7 +280,7 @@ bool IsShiftStartTimeAndEndTimeValid(time startShiftTime, time endShiftTime) {
     }
 }
 
-short unsigned  int ConcateShiftTime(char firstDigit, char secondDigit) {
+short unsigned int ConcateShiftTime(char firstDigit, char secondDigit) {
     char *concateAuxiliar = (char *) malloc(2);
     strncat(concateAuxiliar, &firstDigit, 1);
     strncat(concateAuxiliar, &secondDigit, 1);
@@ -288,7 +288,7 @@ short unsigned  int ConcateShiftTime(char firstDigit, char secondDigit) {
     return atoi(concateAuxiliar);
 }
 
-bool IsNrHiggerThanZeroOrEqual(short unsigned  int inputNr) {
+bool IsNrHiggerThanZeroOrEqual(short unsigned int inputNr) {
     if (inputNr < 0) {
         printf("Numero invalido");
         return false;
@@ -298,8 +298,8 @@ bool IsNrHiggerThanZeroOrEqual(short unsigned  int inputNr) {
     }
 }
 
-tMechanic *EditMechanic(tMechanic *mechanic, int currentNrOfMechanics, tGarage *garage, short unsigned  int currentNrOfGarages) {
-    short unsigned  int inputNr;
+tMechanic *EditMechanic(tMechanic *mechanic, int currentNrOfMechanics, tGarage *garage, short unsigned int currentNrOfGarages) {
+    short unsigned int inputNr;
     unsigned int searchResult;
 
     searchResult = SearchMechanic(mechanic, currentNrOfMechanics, NULL);
@@ -500,7 +500,7 @@ short unsigned int *CheckGarageAvaiableForMechanic(short unsigned int mechanicSp
 }
 
 tMechanic *ShiftMenu(tMechanic *mechanic, unsigned int currentNrOfMechanics,
-        unsigned int mechanicNrToGiveShift, tGarage *garage, short unsigned  int currentNrOfGarages) {
+        unsigned int mechanicNrToGiveShift, tGarage *garage, short unsigned int currentNrOfGarages) {
     char inputOption;
     printf("\n(L) Listar turnos");
     printf("\n(I) Inserir turno");
@@ -523,8 +523,8 @@ tMechanic *ShiftMenu(tMechanic *mechanic, unsigned int currentNrOfMechanics,
     return mechanic;
 }
 
-void ListShifs(tSchedule *shift, short unsigned  int currentNrOfShifts) {
-    short unsigned  int i;
+void ListShifs(tSchedule *shift, short unsigned int currentNrOfShifts) {
+    short unsigned int i;
     for (i = 0; i < currentNrOfShifts; i++) {
         printf("\nNumero: %hu", i + 1);
         printf("\nOficina: %hu", shift[i].nrOfGarage);
@@ -534,9 +534,9 @@ void ListShifs(tSchedule *shift, short unsigned  int currentNrOfShifts) {
 
 }
 
-tSchedule *DeleteShift(tSchedule *shift, short unsigned  int currentNrOfShifts) {
+tSchedule *DeleteShift(tSchedule *shift, short unsigned int currentNrOfShifts) {
     ListShifs(shift, currentNrOfShifts);
-    short unsigned  int inputShiftToDelete, i;
+    short unsigned int inputShiftToDelete, i;
     bool isValidShift = false;
     do {
         printf("\nInsira o numero do turno a apagar: ");
