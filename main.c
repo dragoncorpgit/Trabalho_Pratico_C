@@ -1,4 +1,5 @@
-#include "garage.h"
+#include "toFile.h"
+#include "fromFile.h"
 
 int main(void) 
 {
@@ -46,12 +47,12 @@ int main(void)
  //freeMemory(garage, numGarage);
 }
 
-/*void freeMemory(tGarage* garage, unsigned int* numGarage)
+void freeMemory(tGarage* garage, unsigned int* numGarage)
 {
  //Free all garage pointers
  for((*numGarage)-=1;(*numGarage)>-1;(*numGarage)--)
  {
-  freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].numMaterial);
+  freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].nrOfMaterials);
  }
  //end
  //Free all mechanics pointers
@@ -66,4 +67,4 @@ void freeMaterialMemory(tMaterial* material, unsigned int* nMaterial)
   free(material[(*nMaterial)].denomination);
  }
  free(material);
-}*/
+}

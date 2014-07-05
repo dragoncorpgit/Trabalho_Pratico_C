@@ -29,7 +29,7 @@ typedef struct {
     bool enable;
     enumSpeciality speciality;
     tMaterial *material;
-    unsigned int nrOfMaterials;
+    unsigned int numMaterial;
     tMechanic *mechanic;
     unsigned int nrOfMechanics;
 } tGarage;
