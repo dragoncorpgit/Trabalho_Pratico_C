@@ -24,6 +24,8 @@ typedef struct {
     enumHangar hangarLocation;
     bool enable;
     enumSpeciality speciality;
+    tMaterial *material;
+    tMechanic *mechanic;
 } tGarage;
 
 void AddGarage(tGarage *garage, unsigned short int *currentNrOfGarages);
