@@ -126,7 +126,7 @@ Date GetMechanicBirthDay() {
         printf("\nInsira o ano de nascimento: ");
         scanf("%hu", &inputYear);
         ClearBuffer();
-        inputBirthDate = fillDate(inputDay, inputMonth, inputYear);
+        fillDate(&inputBirthDate,inputDay, inputMonth, inputYear);
     } while (!isCorrectDate(inputBirthDate));
 
     return inputBirthDate;

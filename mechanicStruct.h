@@ -9,6 +9,7 @@
 #define	MECHANICSTRUCT_H
  #include "time.h"
  #include "material.h"
+
  typedef struct {
     short unsigned int nrOfGarage;
     time startWork;

@@ -19,6 +19,6 @@
  bool isCorrectDate(Date);
  bool yearIsLeap(short unsigned int);
  bool inBetween(short unsigned int, short unsigned int, short unsigned int);
- void fillDate(Date*, short unsigned int, short unsigned int);
+ void fillDate(Date*, short unsigned int, short unsigned int, short unsigned int);
 #endif	/* DATE_H */
 

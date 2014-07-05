@@ -7,7 +7,7 @@
 
 #ifndef MATERIAL_H
 #define	MATERIAL_H
- 
+ #include "date.h"
  #include "additionalFunctions.h"
  #include <string.h>
  #include <stdlib.h>
