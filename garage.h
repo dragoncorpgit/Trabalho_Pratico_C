@@ -5,15 +5,6 @@
 
 #define MAX_GARAGE 10
 
-typedef enum {
-    CARS = 0,
-    SIMPLE_MOTORCYLES = 1,
-    HIGH_CYLINDER_MOTORCYLES = 2,
-    TRUCKS = 3,
-    BOATS_MOTOR = 4,
-    BOATS_BI_MOTOR = 5
-} enumSpeciality;
-
 typedef enum hangar {
     NORTH = 0,
     SOUTH = 1,
@@ -54,7 +45,6 @@ short int SearchForHanger(tGarage*, short unsigned int);
 bool IsValidGarageNr(short unsigned int, short unsigned int);
 bool IsValidHangar(short unsigned int);
 bool IsValidFloor(short unsigned int);
-bool IsSpecialityValid(short unsigned int);
 bool IsAreaValid(float*);
 bool IsInputSearchFieldValid (short unsigned int,short unsigned int, short unsigned int);
 

@@ -418,15 +418,6 @@ void ShowListHangar() {
     printf("\n3 - Oeste\n");
 }
 
-bool IsSpecialityValid(short unsigned int inputSpeciality) {
-    if (inputSpeciality < 0 || inputSpeciality > 5) {
-        printf("\nEspecialidade inválido, insira corretamente");
-        return false;
-    } else {
-        return true;
-    }
-}
-
 void ShowSpecialityList() {
     printf("\n0 - Automoveis");
     printf("\n1 - Motociclos Simples");
