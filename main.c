@@ -1,6 +1,6 @@
 #include "toFile.h"
 #include "fromFile.h"
-void freeMemory(tGarage*,unsigned int*);
+void freeMemory(tGarage*, unsigned int*, tMechanic*, unsigned int*);
 void freeMechanicMemory(tMechanic*, unsigned int*);
 void freeMaterialMemory(tMaterial*, unsigned int*);
 
@@ -8,10 +8,14 @@ int main(void)
 {
  tGarage* garage;
  unsigned int numGarage;
+ tMechanic* mechanic;
+ unsigned int numMechanic;
  char choice;
  bool z;
  garage=NULL;
  numGarage=0;
+ mechanic=NULL;
+ numMechanic=0;
  choice=' ';
  
  do
@@ -20,7 +24,7 @@ int main(void)
   printf("\n(M)ateriais");
   printf("\n(O)ficinas");
   printf("\n\n(S)air\n");
-  scanf("%c", &choice);
+  fscanf(stdin,"%c", &choice);
   choice = (choice);
   switch(choice)
   {
@@ -41,16 +45,16 @@ int main(void)
     break;
   }
  }while(choice!='s');
- //freeMemory(garage, numGarage);
+ //freeMemory(garage, &numGarage, mechanic, &numMechanic);
 }
 
-void freeMemory(tGarage* garage, unsigned int* numGarage)
+void freeMemory(tGarage* garage, unsigned int* numGarage, tMechanic* mechanic, unsigned int* numMechanic)
 {
  //Free all garage pointers
  for((*numGarage)-=1;(*numGarage)>-1;(*numGarage)--)
  {
   freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].numMaterial);
-  freeMechanicMemory(garage[(*numGarage)].mechanic,&garage[(*numGarage)].nrOfMechanics);
+  freeMechanicMemory(mechanic,&numMechanic);
  }
  free(garage);
  //end

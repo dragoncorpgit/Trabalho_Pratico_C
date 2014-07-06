@@ -11,6 +11,7 @@
 
  void toFile_exportTGarage(tGarage*, unsigned int);
  void toFile_exportTMaterial(tGarage*, unsigned int);
+ void toFile_exportTMechanic(tMechanic*, unsigned int);
  
 #endif	/* TOFILE_H */
 

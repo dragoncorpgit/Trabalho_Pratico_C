@@ -10,6 +10,6 @@
  #include "garage.h" 
  tGarage* fromFile_importTGarage(tGarage*, unsigned int*);
  tGarage* fromFile_importTMaterial(tGarage*, unsigned int);
-         
+ tMechanic* fromFile_importTMechanic(tMechanic*, unsigned int*);
 #endif	/* FROMFILE_H */
 

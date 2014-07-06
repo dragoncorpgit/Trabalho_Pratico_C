@@ -63,7 +63,46 @@ void toFile_exportTMaterial(tGarage* garage, unsigned int nGarage)
  }
 }
 
-void toFile_exportTMaterial(tMechanic* garage, unsigned int nMachanic)
+void toFile_exportTMechanic(tMechanic* mechanic, unsigned int nMechanic)
 {
- 
+ int i;
+ int j;
+ FILE *file;
+ file=NULL;
+ if(mechanic!=NULL)
+ {
+  file=fopen("mechanic.txt","w");
+  if(file!=NULL)
+  {
+   fprintf(file,"%u\n",nMechanic);
+   for(i=0;i<nMechanic;i++)
+   {
+    fprintf(file,"%u\n",mechanic[i].nr);
+    fprintf(file,"%s\n",mechanic[i].name);
+    fprintf(file,"%hu\n",mechanic[i].speciality);
+    fprintf(file,"%hu\n",mechanic[i].dateOfBirth.day);
+    fprintf(file,"%hu\n",mechanic[i].dateOfBirth.month);
+    fprintf(file,"%hu\n",mechanic[i].dateOfBirth.year);
+    fprintf(file,"%hu\n",mechanic[i].nrOfShifts);
+    for(j=0;j<mechanic[i].nrOfShifts;j++)
+    {
+     fprintf(file,"%hu\n",mechanic[i].shift[j].nrOfGarage);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].startWork.hour);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].startWork.minute);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].startWork.second);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].finishWork.hour);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].finishWork.minute);
+     fprintf(file,"%hu\n",mechanic[i].shift[j].finishWork.second);
+    }
+   }
+  }
+  else
+  {
+   printf("Erro nao escrever no ficheiro");
+  }
+ }
+ else
+ {
+  printf("Não existem mecanicos para serem gravados");
+ }
 }
