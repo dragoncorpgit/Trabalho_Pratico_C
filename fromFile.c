@@ -96,6 +96,7 @@ tMechanic* fromFile_importTMechanic(tMechanic* mechanic, unsigned int* nMechanic
  if(fileMechanic!=NULL)
  {
   fscanf(fileMechanic,"%u\n",&nMechanic);
+  mechanic=(tMechanic*)realloc(mechanic,(*nMechanic)*sizeof(tMechanic));
   for(i=0;i<nMechanic;i++)
   {
    fscanf(fileMechanic,"%u\n",&mechanic[i].nr);
@@ -105,6 +106,7 @@ tMechanic* fromFile_importTMechanic(tMechanic* mechanic, unsigned int* nMechanic
    fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.month);
    fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.year);
    fscanf(fileMechanic,"%hu\n",&mechanic[i].nrOfShifts);
+   mechanic[i].shift=(tSchedule*)realloc(mechanic[i].shift,(mechanic[i].nrOfShifts)*sizeof(tMechanic));
    for(j=0;j<mechanic[i].nrOfShifts;j++)
    {
     fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].nrOfGarage);
