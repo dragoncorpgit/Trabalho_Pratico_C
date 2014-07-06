@@ -8,6 +8,7 @@
 #ifndef MECHANIC_H
  #define	MECHANIC_H
  #include "garageStruct.h"
+ #include <string.h>
 
  tMechanic* InsertMechanic(tMechanic*,unsigned int*, tGarage*,short unsigned int);
  tMechanic* EditMechanic(tMechanic*,int,tGarage*,short unsigned int);
