@@ -99,7 +99,7 @@ tMechanic* fromFile_importTMechanic(tMechanic* mechanic, unsigned int* nMechanic
   for(i=0;i<nMechanic;i++)
   {
    fscanf(fileMechanic,"%u\n",&mechanic[i].nr);
-   fscanf(fileMechanic,"%s\n",&mechanic[i].name);
+   fscanf(fileMechanic,"%ms\n",&mechanic[i].name);
    fscanf(fileMechanic,"%hu\n",&mechanic[i].speciality);
    fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.day);
    fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.month);
