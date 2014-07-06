@@ -24,9 +24,7 @@
     enumHangar hangarLocation;
     enumSpeciality speciality;
     tMaterial *material;
-    tMechanic *mechanic;
     unsigned int numMaterial;
-    unsigned int nrOfMechanics;
  }tGarage;
 
 #endif	/* GARAGESTRUCT_H */

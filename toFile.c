@@ -62,3 +62,8 @@ void toFile_exportTMaterial(tGarage* garage, unsigned int nGarage)
   printf("Erro ao escrever no ficheiro");
  }
 }
+
+void toFile_exportTMaterial(tMechanic* garage, unsigned int nMachanic)
+{
+ 
+}
