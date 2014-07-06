@@ -90,32 +90,49 @@ tMechanic* fromFile_importTMechanic(tMechanic* mechanic, unsigned int* nMechanic
  int j;
  FILE *fileMechanic;
  fileMechanic=NULL;
+ if(mechanic!=NULL)
+ {
+  mechanic=NULL;
+ }
  (*nMechanic)=0;
- mechanic=NULL;
  fileMechanic=fopen("mechanic.txt","r");
  if(fileMechanic!=NULL)
  {
-  fscanf(fileMechanic,"%u\n",&nMechanic);
+  fscanf(fileMechanic,"%u",nMechanic);
   mechanic=(tMechanic*)realloc(mechanic,(*nMechanic)*sizeof(tMechanic));
-  for(i=0;i<nMechanic;i++)
+  if(mechanic!=NULL)
   {
-   fscanf(fileMechanic,"%u\n",&mechanic[i].nr);
-   fscanf(fileMechanic,"%ms\n",&mechanic[i].name);
-   fscanf(fileMechanic,"%hu\n",&mechanic[i].speciality);
-   fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.day);
-   fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.month);
-   fscanf(fileMechanic,"%hu\n",&mechanic[i].dateOfBirth.year);
-   fscanf(fileMechanic,"%hu\n",&mechanic[i].nrOfShifts);
-   mechanic[i].shift=(tSchedule*)realloc(mechanic[i].shift,(mechanic[i].nrOfShifts)*sizeof(tMechanic));
-   for(j=0;j<mechanic[i].nrOfShifts;j++)
+   for(i=0;i<(*nMechanic);i++)
    {
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].nrOfGarage);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].startWork.hour);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].startWork.minute);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].startWork.second);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].finishWork.hour);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].finishWork.minute);
-    fscanf(fileMechanic,"%hu\n",&mechanic[i].shift[j].finishWork.second);
+    fscanf(fileMechanic,"%u",&mechanic[i].nr);
+    fscanf(fileMechanic,"%ms",&mechanic[i].name);
+    fscanf(fileMechanic,"%hu",&mechanic[i].speciality);
+    fscanf(fileMechanic,"%hu",&mechanic[i].dateOfBirth.day);
+    fscanf(fileMechanic,"%hu",&mechanic[i].dateOfBirth.month);
+    fscanf(fileMechanic,"%hu",&mechanic[i].dateOfBirth.year);
+    fscanf(fileMechanic,"%hu",&mechanic[i].nrOfShifts);
+    if(mechanic[i].shift!=NULL)
+    {
+     mechanic[i].shift=NULL;
+    }
+    mechanic[i].shift=(tSchedule*)realloc(mechanic[i].shift,(mechanic[i].nrOfShifts)*sizeof(tMechanic));
+    if(mechanic[i].shift!=NULL)
+    {
+     for(j=0;j<mechanic[i].nrOfShifts;j++)
+     {
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].nrOfGarage);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].startWork.hour);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].startWork.minute);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].startWork.second);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].finishWork.hour);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].finishWork.minute);
+      fscanf(fileMechanic,"%hu",&mechanic[i].shift[j].finishWork.second);
+     }
+    }
+    else
+    {
+     printf("Erro memoria insuficiente para alocar turnos");
+    }
    }
   }
  }
@@ -123,4 +140,5 @@ tMechanic* fromFile_importTMechanic(tMechanic* mechanic, unsigned int* nMechanic
  {
   printf("Erro ao ler ficheiro mechanic.txt");
  }
+ return (tMechanic*)mechanic;
 }
