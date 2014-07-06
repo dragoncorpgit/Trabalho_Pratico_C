@@ -50,14 +50,12 @@ int main(void)
 
 void freeMemory(tGarage* garage, unsigned int* numGarage, tMechanic* mechanic, unsigned int* numMechanic)
 {
- //Free all garage pointers
  for((*numGarage)-=1;(*numGarage)>-1;(*numGarage)--)
  {
   freeMaterialMemory(garage[(*numGarage)].material,&garage[(*numGarage)].numMaterial);
-  freeMechanicMemory(mechanic,&numMechanic);
  }
  free(garage);
- //end
+ freeMechanicMemory(mechanic,numMechanic);
 }
 
 void freeMaterialMemory(tMaterial* material, unsigned int* nMaterial)
