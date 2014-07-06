@@ -1,0 +1,17 @@
+(Número de mecanicos)
+{Repete por mecanico}
+ (Número Mecanico)
+ (Nome Mecanico)
+ (Especialidade do Mecanico)
+ (Dia nascimento)
+ (Mes nascimento)
+ (Ano nascimento)
+ (Número de turnos)
+ {Repete por cada turno}
+  (Número da oficina)
+  (Hora começo)
+  (Minuto começo)
+  (Segundo começo)
+  (Hora fim)
+  (Minuto fim)
+  (Segundo fim)
