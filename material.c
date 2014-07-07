@@ -159,9 +159,10 @@ tMaterial *material_remove(tMaterial *material, unsigned int *numMaterial)
  {
   material_outputSearch(material[position],(unsigned int)position);
   printf("\nDeseja mesmo remover a entrada?\n(Y)es | (N)o\n");
-  scanf("%c",&removeConf);
+  scanf("%c", &removeConf);
+  removeConf = tolower(removeConf);
 
-  if(removeConf=='Y'||removeConf=='y')
+  if(removeConf=='y')
   {
    toRemove=true;
   }
@@ -189,9 +190,17 @@ tMaterial *material_remove(tMaterial *material, unsigned int *numMaterial)
       free(material[i].denomination);
      }
     }
-   } 
+   }
+   
    (*numMaterial)--;
+   
+   if (numMaterial ==0){
+   free(material);
+   material = NULL;
+   return material;
+   }else {
    return (tMaterial*)realloc(material, (sizeof(material)-length));
+   }
   }
   else
   {

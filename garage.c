@@ -1,27 +1,28 @@
 #include "garage.h"
 
-void AddGarage(tGarage *garage, short unsigned int *currentNrOfGarages) {
-
-
+tGarage* InsertGarage(tGarage* garage, short unsigned int* currentNrOfGarages) {
 
     if (*currentNrOfGarages < MAX_GARAGE ) {
-        garage = (tGarage*) realloc (garage, sizeof(tGarage) * (*currentNrOfGarages));
+        garage = (tGarage*) realloc (garage, sizeof(tGarage) * (*currentNrOfGarages+1));
         garage[*currentNrOfGarages].number = (*currentNrOfGarages) + 1;
         garage[*currentNrOfGarages].area = GetGarageArea();
-
         garage[*currentNrOfGarages].floor = GetGarageFloor();
         garage[*currentNrOfGarages].speciality = GetGarageSpeciality();
         garage[*currentNrOfGarages].hangarLocation = GetGarageHangar();
         garage[*currentNrOfGarages].enable = true;
+        garage[*currentNrOfGarages].numMaterial = 0;
+        garage[*currentNrOfGarages].material = NULL;
         (*currentNrOfGarages)++;
 
     } else {
         printf("\nNumero de oficinas maximo atingido");
     }
+    return garage;
 }
 
-float GetGarageArea() {
+float GetGarageArea() {  
     float inputArea;
+    
     do {
         printf("\nInsira a area da oficina: ");
     } while (!IsAreaValid(&inputArea));
@@ -31,6 +32,7 @@ float GetGarageArea() {
 
 short unsigned int GetGarageFloor() {
     short unsigned int inputFloor;
+    
     do {
         printf("\nInsira o andar a que pertece a oficina (0-2): ");
         scanf("%hu", &inputFloor);
@@ -43,6 +45,7 @@ short unsigned int GetGarageFloor() {
 
 short unsigned int GetGarageHangar() {
     short unsigned int inputHangar;
+    
     do {
         ShowListHangar();
         printf("\nInsira o hangar a que pertece a oficina: ");
@@ -55,6 +58,7 @@ short unsigned int GetGarageHangar() {
 
 short unsigned int GetGarageSpeciality() {
     short unsigned int inputSpeciality;
+    
     do {
         ShowSpecialityList();
         printf("\nInsira a especialidade da oficina:");
@@ -101,27 +105,46 @@ void ShowGarage(tGarage *garage, short unsigned int garageToShow) {
     }
 }
 
-void DeleteGarage(tGarage *garage, short unsigned int *currentNrOfGarages) {
-    short unsigned int garageToDelete, i;
-
+tGarage *DeleteGarage(tGarage *garage, short unsigned int *currentNrOfGarages) {
+    short unsigned int garageToDelete, i, inputOption;
+    short int searchResult;
+    ListGarage(garage, *currentNrOfGarages);
     printf("\nInsira o número da garagem que pretende apagar: ");
     do {
         scanf("%hu", &garageToDelete);
         ClearBuffer();
     } while (!IsValidGarageNr(garageToDelete, *currentNrOfGarages));
 
-    //ver se tem materiais associados
+
+    if (garage[garageToDelete-1].numMaterial > 0)
     printf("\nExistem materiais associados a esta oficina");
     printf("\n0 - Apagar materiais");
     printf("\n1 - Transferir materiais para outra oficina");
-    printf("\n2 - Desassociar materiais da oficina a apagar");
+     scanf("%hu", &garageToDelete);
+        ClearBuffer();
+        if (inputOption == 1){
+            
+                printf("\nSelecione a oficina para transferir os materiais");
+                searchResult = ChooseGarage(garage, *currentNrOfGarages);
+                if (searchResult != -1){
+                    garage[searchResult].material = (tMaterial*) realloc (garage[searchResult].material, 
+                            sizeof(tMaterial) * (garage[searchResult].numMaterial + garage[garageToDelete].numMaterial) );
+                    for (i = 0; i < garage[garageToDelete].numMaterial; i++){
+                        garage[searchResult].material[garage[searchResult].numMaterial + i] = garage[garageToDelete].material[i];
+                    }
+                    free(garage[garageToDelete].material);
+                }
+            
+        }
+    
     for (i = garageToDelete; i < (*currentNrOfGarages); i++) {
         garage[i] = garage[i + 1];
     }
     (*currentNrOfGarages)--;
+    return garage;
 }
 
-void EditGarage(tGarage *garage, short unsigned int currentNrOfGarages) {
+tGarage *EditGarage(tGarage *garage, short unsigned int currentNrOfGarages) {
     short int garageFound;
     short unsigned int inputFieldToEdit;
     float inputArea;
@@ -169,6 +192,7 @@ void EditGarage(tGarage *garage, short unsigned int currentNrOfGarages) {
     } else {
         printf("\nNão foram encontrados resultados");
     }
+    return garage;
 }
 
 void SeachGarage(tGarage *garage, short unsigned int currentNrOfGarage) {
@@ -194,7 +218,7 @@ bool IsInputSearchFieldValid(short unsigned int inputSearchField,
 }
 
 short int ChooseGarage(tGarage *garage, short unsigned int currentNrOfGarages) {
-    short unsigned int inputSearchField;
+    short unsigned int inputSearchField = 0;
 
     do {
         ShowAllGarageFields();

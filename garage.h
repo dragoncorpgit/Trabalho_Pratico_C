@@ -4,11 +4,11 @@
 
 #define MAX_GARAGE 10
 
-void AddGarage(tGarage*, short unsigned int*);
+tGarage* InsertGarage(tGarage*, short unsigned int*);
 void SeachGarage(tGarage*, short unsigned int);
 void ListGarage(tGarage*, short unsigned int);
-void DeleteGarage(tGarage*, short unsigned int*);
-void EditGarage(tGarage*, short unsigned int);
+tGarage *DeleteGarage(tGarage*, short unsigned int*);
+tGarage *EditGarage(tGarage*, short unsigned int);
 void ShowListHangar();
 void ShowSpecialityList();
 void ShowAllGarageFields();

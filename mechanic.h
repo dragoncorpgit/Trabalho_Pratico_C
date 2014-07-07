@@ -11,6 +11,7 @@
 
  tMechanic* InsertMechanic(tMechanic*,unsigned int*, tGarage*,short unsigned int);
  tMechanic* EditMechanic(tMechanic*,int,tGarage*,short unsigned int);
+ tMechanic* RemoveMechanic(tMechanic*, unsigned int*);
  tMechanic* GetMechanicShift(tMechanic*,unsigned int,unsigned int,tGarage*,short unsigned int);
  tMechanic* mechanic_add(tMechanic*,unsigned int*,tMechanic,bool);
  tMechanic* ShiftMenu(tMechanic*,unsigned int,unsigned int,tGarage*,short unsigned int); 
@@ -43,5 +44,7 @@
  void mechanic_sort(tMechanic*, unsigned int);
  void ListMechanicEditFields();
  void ListShifs(tSchedule*,short unsigned int); 
+ 
+ 
 #endif	/* MECHANIC_H */
 

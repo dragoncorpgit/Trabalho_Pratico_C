@@ -6,7 +6,7 @@ void toFile_exportTGarage(tGarage* garage, unsigned int nGarage)
  int i;
  if(garage!=NULL)
  {
-  fileGarage=fopen("garage.txt","w");
+  fileGarage=fopen("oficinas.txt","w");
   if(fileGarage!=NULL)
   {
    fprintf(fileGarage,"%u\n",nGarage);
@@ -25,12 +25,12 @@ void toFile_exportTGarage(tGarage* garage, unsigned int nGarage)
   }
   else
   {
-   printf("Erro ao escrever no ficheiro");
+   printf("\nErro ao escrever no ficheiro");
   }
  }
  else
  {
-  printf("Erro sem dados para guardar");
+  printf("\nErro sem dados para guardar");
  }
 }
 
@@ -44,22 +44,25 @@ void toFile_exportTMaterial(tGarage* garage, unsigned int nGarage)
  {
   for(i=0;i<nGarage;i++)
   {
-   fprintf(fileMaterial, "%hu\n", garage[i].number);
-   for(j=0;j<garage[i].numMaterial;j++)
+   if(garage[i].material!=NULL)
    {
-    fprintf(fileMaterial,"%s\n", garage[i].material[j].denomination);
-    fprintf(fileMaterial,"%s\n",garage[i].material[j].nSerie);
-    fprintf(fileMaterial,"%hu\n",garage[i].material[j].acquisitionDate.day);
-    fprintf(fileMaterial,"%hu\n",garage[i].material[j].acquisitionDate.month);
-    fprintf(fileMaterial,"%hu\n",garage[i].material[j].acquisitionDate.year);
-    fprintf(fileMaterial,"%f\n",garage[i].material[j].price);
+    fprintf(fileMaterial, "%hu\n", garage[i].number);
+    for(j=0; j<garage[i].numMaterial; j++)
+    {
+     fprintf(fileMaterial, "%s\n", garage[i].material[j].denomination);
+     fprintf(fileMaterial, "%s\n", garage[i].material[j].nSerie);
+     fprintf(fileMaterial, "%hu\n", garage[i].material[j].acquisitionDate.day);
+     fprintf(fileMaterial, "%hu\n", garage[i].material[j].acquisitionDate.month);
+     fprintf(fileMaterial, "%hu\n", garage[i].material[j].acquisitionDate.year);
+     fprintf(fileMaterial, "%f\n", garage[i].material[j].price);
+    }
    }
   }
   fclose(fileMaterial);
  }
  else
  {
-  printf("Erro ao escrever no ficheiro");
+  printf("\nErro ao escrever no ficheiro");
  }
 }
 
@@ -71,9 +74,10 @@ void toFile_exportTMechanic(tMechanic* mechanic, unsigned int nMechanic)
  file=NULL;
  if(mechanic!=NULL)
  {
-  file=fopen("mechanic.txt","w");
+  file=fopen("mecanicos.txt","w");
   if(file!=NULL)
   {
+       
    fprintf(file,"%u\n",nMechanic);
    for(i=0;i<nMechanic;i++)
    {
@@ -95,14 +99,15 @@ void toFile_exportTMechanic(tMechanic* mechanic, unsigned int nMechanic)
      fprintf(file,"%hu\n",mechanic[i].shift[j].finishWork.second);
     }
    }
+       
   }
   else
   {
-   printf("Erro nao escrever no ficheiro");
+   printf("\nErro ao escrever no ficheiro");
   }
  }
  else
  {
-  printf("Não existem mecanicos para serem gravados");
+  printf("\nNão existem mecanicos para serem gravados");
  }
 }

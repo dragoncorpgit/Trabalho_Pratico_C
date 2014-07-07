@@ -19,6 +19,7 @@ tMechanic *InsertMechanic(tMechanic *mechanic, unsigned int *currentNrOfMechanic
 }
 
 short unsigned int GetMechanicNrOfShifts() {
+
     short unsigned int nrOfShifts;
 
     do {
@@ -32,7 +33,7 @@ short unsigned int GetMechanicNrOfShifts() {
 }
 
 char *GetMechanicName() {
-   
+
     char *name = NULL;
 
 
@@ -41,15 +42,17 @@ char *GetMechanicName() {
         scanf("%ms", &name);
         ClearBuffer();
     } while (name == NULL);
-    
+
     string_removeNewLineFromArray(name);
-    
+
     return name;
 }
 
 Date GetMechanicBirthDay() {
+
     Date inputBirthDate;
     short unsigned int inputDay, inputMonth, inputYear;
+
     do {
         printf("\nInsira o dia de nascimento: ");
         scanf("%hu", &inputDay);
@@ -60,13 +63,14 @@ Date GetMechanicBirthDay() {
         printf("\nInsira o ano de nascimento: ");
         scanf("%hu", &inputYear);
         ClearBuffer();
-        fillDate(&inputBirthDate,inputDay, inputMonth, inputYear);
+        fillDate(&inputBirthDate, inputDay, inputMonth, inputYear);
     } while (!isCorrectDate(inputBirthDate));
 
     return inputBirthDate;
 }
 
 short unsigned int GetMechanicSpeciality() {
+
     short unsigned int inputSpeciality;
     do {
         ShowSpecialityList();
@@ -76,6 +80,43 @@ short unsigned int GetMechanicSpeciality() {
     } while (!IsSpecialityValid(inputSpeciality));
 
     return inputSpeciality;
+}
+
+tMechanic* RemoveMechanic(tMechanic* mechanic, unsigned int *currentNrOfMechanics) {
+
+    int serchResult = SearchMechanic(mechanic, *currentNrOfMechanics, NULL);
+    char removeConf;
+    bool toRemove;
+
+    if (serchResult != -1) {
+        mechanic_outputSearch(mechanic[serchResult], serchResult);
+        printf("\nDeseja mesmo remover a entrada?\n(Y)es | (N)o\n");
+        
+        scanf("%c", removeConf);
+        removeConf = tolower(removeConf);
+        if (removeConf == 'y') {
+
+            toRemove = true;
+        }
+        if (toRemove) {
+
+            unsigned int i;
+            for (i = serchResult; i < *currentNrOfMechanics - 1; i++) {
+                free(mechanic[i].shift);
+                mechanic[i] = mechanic[i + 1];
+            }
+            (*currentNrOfMechanics)--;
+            if (currentNrOfMechanics == 0){
+                free(mechanic);
+                mechanic = NULL;
+            }else {
+            mechanic = (tMechanic*) realloc(mechanic, sizeof (tMechanic) * *currentNrOfMechanics);
+            }
+        }
+    } else {
+        printf("\nMecanico nao encontrado");
+    }
+     return mechanic;
 }
 
 tMechanic *GetMechanicShift(tMechanic *mechanic, unsigned int currentNrOfMechanics, unsigned int mechanicNrToGiveShift,
@@ -97,8 +138,6 @@ tMechanic *GetMechanicShift(tMechanic *mechanic, unsigned int currentNrOfMechani
 
             if (nrOfGaragesAvaiable > 0) {
                 do {
-
-
                     for (i2 = 0; i2 < nrOfGaragesAvaiable; i2++) {
                         ShowGarage(garage, avaiableGarageNrs[i2]);
                     }
@@ -436,10 +475,11 @@ short unsigned int *CheckGarageAvaiableForMechanic(short unsigned int mechanicSp
 tMechanic *ShiftMenu(tMechanic *mechanic, unsigned int currentNrOfMechanics,
         unsigned int mechanicNrToGiveShift, tGarage *garage, short unsigned int currentNrOfGarages) {
     char inputOption;
+
     printf("\n(L) Listar turnos");
     printf("\n(I) Inserir turno");
     printf("\n(A) Apagar turno");
-    fgets(&inputOption, 2, stdin);
+    scanf("%c", &inputOption);
     ClearBuffer();
     inputOption = tolower(inputOption);
     switch (inputOption) {
